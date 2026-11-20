@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
 import WaveDivider from "../components/WaveDivider.astro";
+import SealMotif from "../components/SealMotif.astro";
 import { SITE, TRUST_BAR, NEEDS, WHY, PROCESS_STEPS, FAQ_GENERAL, CASES, TEAM, waLink, contactLink } from "../data/site";
 import { SERVICES } from "../data/services";
 ---
@@ -21,7 +22,14 @@ import { SERVICES } from "../data/services";
         </div>
       </div>
       <div class="hero-media-photo">
-        <span>foto real · equipo en la oficina</span>
+        <div class="ledger-lines" aria-hidden="true">
+          <span style="width:72%"></span>
+          <span style="width:88%"></span>
+          <span style="width:60%"></span>
+          <span style="width:80%"></span>
+          <span style="width:46%"></span>
+        </div>
+        <div class="hero-seal"><SealMotif size={110} tone="accent" /></div>
       </div>
     </div>
     <WaveDivider />
@@ -153,7 +161,7 @@ import { SERVICES } from "../data/services";
     <div class="team-grid">
       {TEAM.map((m) => (
         <div class="team-card">
-          <div class="team-photo"></div>
+          <div class="team-photo"><SealMotif size={88} tone="brand" /></div>
           <span class="n">{m.n}</span>
           <span class="r">{m.r}</span>
           <span class="tp">{m.tp}</span>

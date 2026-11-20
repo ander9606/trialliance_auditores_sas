@@ -50,7 +50,6 @@ const serviceFaq = FAQ_GENERAL.slice(0, 4);
     <>
       <section class="section container">
         <div class="section-head">
-          <span class="eyebrow">¿Es para su empresa?</span>
           <h2 style="font-size:28px">Si marca al menos una, conversemos</h2>
         </div>
         <div class="check-list">
@@ -64,15 +63,16 @@ const serviceFaq = FAQ_GENERAL.slice(0, 4);
 
       <section class="section container">
         <div class="section-head">
-          <span class="eyebrow">Qué incluye</span>
           <h2 style="font-size:28px">Una evaluación integral de su organización</h2>
         </div>
         <div class="includes-grid">
           {service.detail.includes.map((s: { icon: any; t: string; d: string }) => (
             <div class="include-card">
               <span class="icon"><Icon name={s.icon} size={28} /></span>
-              <span class="t">{s.t}</span>
-              <span class="d">{s.d}</span>
+              <span>
+                <span class="t" style="display:block">{s.t}</span>
+                <span class="d">{s.d}</span>
+              </span>
             </div>
           ))}
         </div>
@@ -80,7 +80,6 @@ const serviceFaq = FAQ_GENERAL.slice(0, 4);
 
       <section class="section container">
         <div class="section-head">
-          <span class="eyebrow">Entregables</span>
           <h2 style="font-size:28px">Lo que recibe, por escrito y firmado</h2>
           <p style="font-size:15px;color:var(--text-soft)">Cada documento lo firma un contador público con tarjeta profesional vigente.</p>
         </div>
@@ -97,7 +96,6 @@ const serviceFaq = FAQ_GENERAL.slice(0, 4);
 
       <section class="section container">
         <div class="section-head">
-          <span class="eyebrow">Proceso</span>
           <h2 style="font-size:28px">Así acompañamos su año fiscal</h2>
         </div>
         <div class="steps">
@@ -117,7 +115,6 @@ const serviceFaq = FAQ_GENERAL.slice(0, 4);
   ) : (
     <section class="section container">
       <div class="section-head">
-        <span class="eyebrow">Qué incluye</span>
         <h2 style="font-size:28px">Alcance del servicio</h2>
       </div>
       <div class="simple-list">

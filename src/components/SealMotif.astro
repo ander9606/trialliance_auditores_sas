@@ -1,0 +1,31 @@
+---
+interface Props {
+  size?: number;
+  tone?: "accent" | "brand";
+}
+const { size = 120, tone = "accent" } = Astro.props;
+const stroke = tone === "accent" ? "#8fd3f7" : "#0b2160";
+const strokeSoft = tone === "accent" ? "rgba(143,211,247,.45)" : "rgba(11,33,96,.35)";
+const check = tone === "accent" ? "#46b8f0" : "#0b2160";
+const ticks = Array.from({ length: 28 }, (_, i) => (360 / 28) * i);
+---
+<svg viewBox="0 0 200 200" width={size} height={size} role="presentation" aria-hidden="true">
+  <circle cx="100" cy="100" r="90" fill="none" stroke={strokeSoft} stroke-width="1.5" />
+  <circle cx="100" cy="100" r="66" fill="none" stroke={strokeSoft} stroke-width="1.5" stroke-dasharray="2 7" />
+  <g stroke={stroke} stroke-width="2" stroke-linecap="round">
+    {ticks.map((deg) => (
+      <line
+        x1="100" y1="16" x2="100" y2="26"
+        transform={`rotate(${deg} 100 100)`}
+      />
+    ))}
+  </g>
+  <path
+    d="M66 103 L88 125 L136 76"
+    fill="none"
+    stroke={check}
+    stroke-width="9"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

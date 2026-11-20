@@ -11,14 +11,13 @@ import { SERVICES } from "../data/services";
   <section class="hero" style="padding:48px 0 72px">
     <div class="decor-ring" style="width:380px;height:380px;right:-180px;top:-180px"></div>
     <div class="container" style="display:block;max-width:var(--container)">
-      <div class="hero-kicker">Contacto</div>
-      <h1 style="margin-top:12px">¿Hablamos de su empresa?</h1>
+      <h1>¿Hablamos de su empresa?</h1>
       <p class="lede" style="margin-top:12px">Cuéntenos su caso y le enviamos una propuesta con alcance y tiempos. Respondemos en menos de un día hábil.</p>
     </div>
   </section>
 
   <section class="section container" style="padding-bottom:64px">
-    <div style="display:grid;grid-template-columns:1fr;gap:48px">
+    <div class="contact-grid">
       <form id="advisory-form" class="form" novalidate>
         <div class="field">
           <label for="servicio">Servicio de interés</label>
@@ -73,23 +72,25 @@ import { SERVICES } from "../data/services";
         <p id="form-hint" class="form-hint" hidden></p>
       </form>
 
-      <div style="display:flex;flex-direction:column;gap:14px;max-width:480px">
-        <p style="font-size:14px;color:var(--text-soft)">¿Prefiere no llenar el formulario? Escríbanos directo:</p>
-        <a class="include-card" href={mailLink("Solicitud de asesoría")} style="text-decoration:none;flex-direction:row;align-items:center;gap:16px">
-          <span class="icon icon-brand"><Icon name="mail" size={28} /></span>
-          <span><span class="t" style="display:block">Correo</span><span class="d">{SITE.email}</span></span>
-        </a>
-        <a class="include-card" href={waLink("Hola, quiero más información sobre sus servicios.")} style="text-decoration:none;flex-direction:row;align-items:center;gap:16px">
-          <span class="icon icon-brand"><Icon name="wa" size={28} /></span>
-          <span><span class="t" style="display:block">WhatsApp</span><span class="d">{SITE.phoneDisplay}</span></span>
-        </a>
-        <a class="include-card" href={`tel:+${SITE.phoneIntl}`} style="text-decoration:none;flex-direction:row;align-items:center;gap:16px">
-          <span class="icon icon-brand"><Icon name="phone" size={28} /></span>
-          <span><span class="t" style="display:block">Teléfono</span><span class="d">{SITE.phoneDisplay}</span></span>
-        </a>
-        <div class="include-card" style="flex-direction:row;align-items:center;gap:16px">
-          <span class="icon icon-brand"><Icon name="building" size={28} /></span>
-          <span><span class="t" style="display:block">Dirección</span><span class="d">{SITE.address}</span></span>
+      <div>
+        <p style="font-size:14px;color:var(--text-soft);margin-bottom:16px">¿Prefiere no llenar el formulario? Escríbanos directo:</p>
+        <div class="includes-grid" style="max-width:none">
+          <a class="include-card" href={mailLink("Solicitud de asesoría")}>
+            <span class="icon icon-brand"><Icon name="mail" size={28} /></span>
+            <span><span class="t" style="display:block">Correo</span><span class="d">{SITE.email}</span></span>
+          </a>
+          <a class="include-card" href={waLink("Hola, quiero más información sobre sus servicios.")}>
+            <span class="icon icon-brand"><Icon name="wa" size={28} /></span>
+            <span><span class="t" style="display:block">WhatsApp</span><span class="d">{SITE.phoneDisplay}</span></span>
+          </a>
+          <a class="include-card" href={`tel:+${SITE.phoneIntl}`}>
+            <span class="icon icon-brand"><Icon name="phone" size={28} /></span>
+            <span><span class="t" style="display:block">Teléfono</span><span class="d">{SITE.phoneDisplay}</span></span>
+          </a>
+          <div class="include-card">
+            <span class="icon icon-brand"><Icon name="building" size={28} /></span>
+            <span><span class="t" style="display:block">Dirección</span><span class="d">{SITE.address}</span></span>
+          </div>
         </div>
       </div>
     </div>

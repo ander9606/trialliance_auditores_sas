@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+import SealMotif from "../components/SealMotif.astro";
 import { TRUST_BAR, TEAM, contactLink } from "../data/site";
 
 const pillars = [
@@ -13,11 +14,10 @@ const pillars = [
   title="Nosotros"
   description="Quiénes somos, nuestro propósito y el equipo de contadores públicos que firma cada informe de TriAlliance Auditores."
 >
-  <section class="hero" style="padding:48px 0 72px">
+  <section class="hero" style="padding:48px 0 112px">
     <div class="decor-ring" style="width:380px;height:380px;right:-180px;top:-180px"></div>
     <div class="container" style="display:block;max-width:var(--container)">
-      <div class="hero-kicker">Nosotros</div>
-      <h1 style="margin-top:12px">Confianza, rigor y excelencia en cada informe.</h1>
+      <h1>Confianza, rigor y excelencia en cada informe.</h1>
       <p class="lede" style="margin-top:12px">Somos una firma de revisoría fiscal y auditoría independiente. Un solo equipo acompaña a su empresa en lo financiero, tributario, legal, de nómina y de tecnología.</p>
     </div>
   </section>
@@ -57,7 +57,7 @@ const pillars = [
     <div class="team-grid">
       {TEAM.map((m) => (
         <div class="team-card">
-          <div class="team-photo"></div>
+          <div class="team-photo"><SealMotif size={88} tone="brand" /></div>
           <span class="n">{m.n}</span>
           <span class="r">{m.r}</span>
           <span class="tp">{m.tp}</span>
