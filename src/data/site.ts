@@ -6,7 +6,7 @@ export const SITE = {
   tagline: "Su confianza, nuestro mayor compromiso.",
   phoneDisplay: "300 992 9223", // espacios no separables: no debe partirse a mitad de número
   phoneIntl: "573009929223", // para enlaces wa.me (57 = Colombia)
-  email: "comercialtrialliance@gmail.com",
+  email: "info@trialliance.co",
   nit: "[000.000.000-0]", // pendiente
   address: "[Dirección, ciudad]", // pendiente
 };
