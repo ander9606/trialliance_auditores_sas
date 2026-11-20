@@ -1,0 +1,20 @@
+---
+// Ola decorativa entre el hero oscuro y el contenido claro.
+// El borde blanco (la silueta real que separa el azul del blanco) y la línea de
+// acento se mueven juntos: dos copias desplazadas que se recorren en bucle,
+// así toda la frontera azul/blanca fluye sin saltos.
+---
+<div class="hero-wave">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none" width="100%" height="100%" style="display:block">
+    <defs>
+      <path id="wave-fill-path" d="M0 90V40Q180 16 360 40T720 40Q900 64 1080 40T1440 40V90Z" fill="#ffffff"></path>
+      <path id="wave-line-path" d="M0 44Q180 26 360 44T720 44Q900 62 1080 44T1440 44" fill="none" stroke="#46B8F0" stroke-width="2" opacity=".55"></path>
+    </defs>
+    <g class="wave-track">
+      <use href="#wave-fill-path" xlink:href="#wave-fill-path"></use>
+      <use href="#wave-fill-path" xlink:href="#wave-fill-path" x="1440"></use>
+      <use href="#wave-line-path" xlink:href="#wave-line-path"></use>
+      <use href="#wave-line-path" xlink:href="#wave-line-path" x="1440"></use>
+    </g>
+  </svg>
+</div>

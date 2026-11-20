@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>body{margin:0;background:#e9edf3;font-family:'Hanken Grotesk',system-ui,sans-serif;color:#0E1B36;-webkit-font-smoothing:antialiased}a{color:#1E56C8;text-decoration:none}a:hover{color:#0B2160;text-decoration:underline}button{font-family:inherit}.dv-turn{padding:40px 44px 32px;scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 12px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.6)}.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.55)}</style></helmet>
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">TriAlliance Auditores · portada, móvil y plantilla de servicio</span></div>
+<div style="max-width:880px;margin:0 0 28px;font:13px/1.55 system-ui,sans-serif;color:rgba(0,0,0,.65);display:flex;flex-direction:column;gap:6px">
+<div><b style="color:#1a1a1a">Sistema:</b> azul marca #0B2160, profundo #071538, acento #46B8F0 (solo para "Solicitar asesoría" y detalles), fondo suave #EEF4FC. Títulos Source Serif 4 (eco del logotipo serif), texto Hanken Grotesk ≥16px. Iconos lineales 1.6px, siempre azul. Formas: arcos y ondas como en el folleto.</div>
+<div><b style="color:#1a1a1a">Supuestos:</b> cifras, NIT, casos, reseñas y equipo están marcados como <span style="background:#FFF4CC;padding:0 4px;border-radius:3px">[pendiente]</span> hasta tener datos reales. Logo redibujado como marcador; reemplazar por el vector oficial. Todo es clicable: tarjetas de servicio, FAQ y menú móvil.</div>
+</div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a"><div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Portada · escritorio 1280</div>
+<div class="dv-card" style="width:1280px">
+
+<header style="height:80px;background:#ffffff;border-bottom:1px solid #D8E3F3;display:flex;align-items:center;padding:0 56px;gap:40px">
+<div style="display:flex;align-items:center;gap:12px;flex:none"><div style="width:40px;height:40px;color:#0B2160">{{ ic.logo }}</div><div style="display:flex;flex-direction:column;gap:3px;line-height:1"><span style="font-family:'Source Serif 4',serif;font-weight:700;font-size:21px;letter-spacing:.06em;color:#0B2160">TRIALLIANCE</span><span style="font-size:11px;font-weight:600;letter-spacing:.24em;color:#1E56C8">AUDITORES S.A.S.</span></div></div>
+<nav style="display:flex;gap:4px;margin-left:auto"><a href="#" style="font-size:16px;font-weight:500;color:#0E1B36;padding:12px 12px">Servicios</a><a href="#" style="font-size:16px;font-weight:500;color:#0E1B36;padding:12px 12px">Nosotros</a><a href="#" style="font-size:16px;font-weight:500;color:#0E1B36;padding:12px 12px">Cómo trabajamos</a><a href="#" style="font-size:16px;font-weight:500;color:#0E1B36;padding:12px 12px">Casos</a><a href="#" style="font-size:16px;font-weight:500;color:#0E1B36;padding:12px 12px">Recursos</a><a href="#" style="font-size:16px;font-weight:500;color:#0E1B36;padding:12px 12px">Contacto</a></nav>
+<button style="background:#46B8F0;color:#071538;font-weight:700;font-size:16px;height:48px;padding:0 22px;border:0;border-radius:8px;cursor:pointer;flex:none" style-hover="background:#6CC7F4">Solicitar asesoría</button>
+</header>
+
+<section style="position:relative;background:#071538;color:#ffffff;overflow:hidden;padding:96px 0 152px">
+<div style="position:absolute;width:760px;height:760px;border-radius:50%;border:1px solid rgba(70,184,240,.28);right:-220px;top:-300px"></div>
+<div style="position:absolute;width:540px;height:540px;border-radius:50%;border:1px solid rgba(70,184,240,.18);right:-110px;top:-190px"></div>
+<div style="position:absolute;width:900px;height:600px;border-radius:50%;background:radial-gradient(closest-side,rgba(30,86,200,.45),rgba(30,86,200,0));left:-300px;bottom:-320px"></div>
+<div style="position:relative;max-width:1168px;margin:0 auto;padding:0 56px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:64px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:28px">
+<div style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8FD3F7">Revisoría fiscal y auditoría · Colombia</div>
+<h1 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:60px;line-height:1.06;letter-spacing:-.015em;margin:0;text-wrap:balance">Más control, mejor gestión y decisiones con respaldo.</h1>
+<p style="font-size:20px;line-height:1.5;color:#C9D6EE;margin:0;max-width:520px">Revisoría fiscal y auditoría independiente para empresas colombianas, bajo NIA y NIIF.</p>
+<div style="display:flex;gap:16px;align-items:center;padding-top:8px">
+<button style="background:#46B8F0;color:#071538;font-weight:700;font-size:17px;height:56px;padding:0 28px;border:0;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:10px" style-hover="background:#6CC7F4">Solicitar asesoría<span style="width:20px;height:20px;display:flex">{{ ic.arrow }}</span></button>
+<button style="background:transparent;color:#ffffff;font-weight:600;font-size:17px;height:56px;padding:0 24px;border:1px solid rgba(255,255,255,.4);border-radius:8px;cursor:pointer" style-hover="border-color:#ffffff;background:rgba(255,255,255,.06)">Explorar servicios</button>
+</div>
+</div>
+<sc-if value="{{ isPhoto }}" hint-placeholder-val="{{ true }}">
+<div style="position:relative;height:440px">
+<div style="position:absolute;inset:24px -24px -24px 24px;border:1px solid rgba(70,184,240,.5);border-radius:16px"></div>
+<div style="position:absolute;inset:0;border-radius:16px;background:repeating-linear-gradient(135deg,#10306F 0 14px,#0D2A63 14px 28px);display:flex;align-items:center;justify-content:center"><span style="font:13px ui-monospace,Menlo,monospace;color:#8FA7D4;background:#0B2160;padding:6px 10px;border-radius:4px">foto real · equipo en la oficina</span></div>
+<div style="position:absolute;left:-28px;bottom:32px;background:#ffffff;color:#0E1B36;border-radius:12px;padding:18px 22px;display:flex;gap:14px;align-items:center;box-shadow:0 12px 32px rgba(7,21,56,.35)"><span style="width:28px;height:28px;color:#1E56C8;display:flex">{{ ic.shield }}</span><div style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:16px">Confianza · Rigor · Excelencia</span><span style="font-size:16px;color:#4B5A78">Contadores con T.P. vigente</span></div></div>
+</div>
+</sc-if>
+<sc-if value="{{ isGraphic }}" hint-placeholder-val="{{ false }}">
+<div style="position:relative;height:440px;display:flex;align-items:center;justify-content:center">
+<div style="position:absolute;width:400px;height:400px;border-radius:50%;border:1px solid rgba(70,184,240,.45)"></div>
+<div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#1E56C8,#0B2160)"></div>
+<div style="position:relative;background:#ffffff;color:#0E1B36;border-radius:14px;padding:28px;width:320px;display:flex;flex-direction:column;gap:16px;box-shadow:0 20px 48px rgba(7,21,56,.45)">
+<div style="font-weight:700;font-size:17px;color:#0B2160">Revisión integral</div>
+<sc-for list="{{ heroChecks }}" as="c" hint-placeholder-count="4"><div style="display:flex;gap:12px;align-items:center;font-size:16px"><span style="width:22px;height:22px;color:#1E56C8;display:flex;flex:none">{{ ic.check }}</span>{{ c }}</div></sc-for>
+</div>
+</div>
+</sc-if>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:-1px;height:90px">{{ waveW }}</div>
+</section>
+
+<section style="position:relative;max-width:1168px;margin:-72px auto 0;padding:0 56px">
+<div style="background:#ffffff;border:1px solid #D8E3F3;border-radius:14px;box-shadow:0 10px 30px rgba(11,33,96,.08);display:grid;grid-template-columns:repeat(5,minmax(0,1fr))">
+<sc-for list="{{ trust }}" as="t" hint-placeholder-count="5">
+<div style="padding:28px 24px;display:flex;flex-direction:column;gap:10px;border-left:1px solid #E6EDF7">
+<span style="width:28px;height:28px;color:#1E56C8;display:flex">{{ t.icon }}</span>
+<span style="font-weight:700;font-size:18px;color:#0B2160">{{ t.k }}</span>
+<span style="font-size:16px;line-height:1.4;color:#4B5A78">{{ t.v }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:120px 56px 0">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:40px">
+<div style="display:flex;flex-direction:column;gap:14px"><div style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1E56C8">Empiece por su situación</div><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:42px;line-height:1.12;color:#0B2160;margin:0">¿Qué necesita su empresa?</h2></div>
+<p style="font-size:18px;color:#4B5A78;margin:0;max-width:360px;line-height:1.5">Elija lo que más se parece a su caso y le mostramos el servicio adecuado.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px">
+<sc-for list="{{ needs }}" as="n" hint-placeholder-count="4">
+<a href="#" style="background:#EEF4FC;border:1px solid #D8E3F3;border-radius:12px;padding:28px 24px;display:flex;flex-direction:column;gap:24px;min-height:220px;color:#0E1B36;text-decoration:none" style-hover="border-color:#1E56C8;background:#E3EDFB;text-decoration:none">
+<span style="width:32px;height:32px;color:#1E56C8;display:flex">{{ n.icon }}</span>
+<span style="font-size:19px;font-weight:600;line-height:1.35;flex:1;text-wrap:pretty">{{ n.q }}</span>
+<span style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700;color:#1E56C8">{{ n.svc }}<span style="width:18px;height:18px;display:flex">{{ ic.arrow }}</span></span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:120px 56px 0">
+<div style="display:flex;flex-direction:column;gap:14px;margin-bottom:40px;max-width:720px"><div style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1E56C8">Servicios</div><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:42px;line-height:1.12;color:#0B2160;margin:0;text-wrap:balance">Cumplir la norma y decidir con información confiable</h2></div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start">
+<sc-for list="{{ svcD }}" as="s" hint-placeholder-count="9">
+<div style="background:#ffffff;border:1px solid #D8E3F3;border-radius:12px;overflow:hidden">
+<button onClick="{{ s.toggle }}" aria-expanded="{{ s.exp }}" style="width:100%;background:transparent;border:0;text-align:left;cursor:pointer;padding:24px;display:grid;grid-template-columns:48px minmax(0,1fr) 44px;gap:16px;align-items:start;color:#0E1B36" style-hover="background:#F6F9FE">
+<span style="width:48px;height:48px;border-radius:10px;background:#EEF4FC;color:#1E56C8;display:flex;align-items:center;justify-content:center"><span style="width:26px;height:26px;display:flex">{{ s.icon }}</span></span>
+<span style="display:flex;flex-direction:column;gap:6px"><span style="font-size:19px;font-weight:700;color:#0B2160">{{ s.t }}</span><span style="font-size:16px;line-height:1.45;color:#4B5A78">{{ s.d }}</span></span>
+<span style="width:44px;height:44px;border-radius:50%;border:1px solid #D8E3F3;display:flex;align-items:center;justify-content:center;color:#0B2160"><span style="width:18px;height:18px;display:flex">{{ s.sign }}</span></span>
+</button>
+<sc-if value="{{ s.open }}" hint-placeholder-val="{{ false }}">
+<div style="padding:0 24px 24px 88px;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ s.items }}" as="b" hint-placeholder-count="3"><div style="display:flex;gap:10px;font-size:16px;line-height:1.4"><span style="width:18px;height:18px;color:#1E56C8;display:flex;flex:none;margin-top:2px">{{ ic.check }}</span>{{ b }}</div></sc-for>
+<a href="#" style="font-size:16px;font-weight:700;padding:10px 0 0;display:flex;align-items:center;gap:6px;min-height:44px">Ver detalle del servicio<span style="width:16px;height:16px;display:flex">{{ ic.arrow }}</span></a>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:120px 56px 0">
+<div style="background:#EEF4FC;border-radius:20px;padding:64px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2fr);gap:56px;position:relative;overflow:hidden">
+<div style="position:absolute;width:420px;height:420px;border-radius:50%;border:1px solid #C7D8F2;left:-180px;bottom:-220px"></div>
+<div style="position:relative;display:flex;flex-direction:column;gap:14px"><div style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1E56C8">Por qué TriAlliance</div><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:38px;line-height:1.14;color:#0B2160;margin:0;text-wrap:balance">Un solo equipo independiente para toda su revisión</h2></div>
+<div style="position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 48px">
+<sc-for list="{{ why }}" as="w" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:12px"><span style="width:32px;height:32px;color:#1E56C8;display:flex">{{ w.icon }}</span><span style="font-size:19px;font-weight:700;color:#0B2160">{{ w.t }}</span><span style="font-size:16px;line-height:1.5;color:#4B5A78">{{ w.d }}</span></div></sc-for>
+</div>
+</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:120px 56px 0">
+<div style="display:flex;flex-direction:column;gap:14px;margin-bottom:56px;max-width:720px"><div style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1E56C8">Cómo trabajamos</div><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:42px;line-height:1.12;color:#0B2160;margin:0">Cinco etapas claras, de la primera reunión al informe</h2></div>
+<div style="position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px">
+<div style="position:absolute;left:28px;right:28px;top:27px;height:2px;background:linear-gradient(90deg,#0B2160,#46B8F0)"></div>
+<sc-for list="{{ steps }}" as="p" hint-placeholder-count="5"><div style="position:relative;display:flex;flex-direction:column;gap:14px"><span style="width:56px;height:56px;border-radius:50%;background:#ffffff;border:2px solid #0B2160;color:#0B2160;font-family:'Source Serif 4',serif;font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center">{{ p.n }}</span><span style="font-size:19px;font-weight:700;color:#0B2160;padding-top:6px">{{ p.t }}</span><span style="font-size:16px;line-height:1.5;color:#4B5A78">{{ p.d }}</span></div></sc-for>
+</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:120px 56px 0">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px"><div style="display:flex;flex-direction:column;gap:14px"><div style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1E56C8">Casos y reseñas</div><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:42px;line-height:1.12;color:#0B2160;margin:0">Resultados que se pueden verificar</h2></div><a href="#" style="font-size:16px;font-weight:700;display:flex;align-items:center;gap:6px;min-height:44px">Ver todos los casos<span style="width:16px;height:16px;display:flex">{{ ic.arrow }}</span></a></div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:20px">
+<sc-for list="{{ cases }}" as="c" hint-placeholder-count="2"><div style="border:1px solid #D8E3F3;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:16px"><span style="align-self:flex-start;font-size:16px;font-weight:600;color:#0B2160;background:#EEF4FC;padding:4px 10px;border-radius:6px">{{ c.tag }}</span><span style="font-size:20px;font-weight:700;color:#0B2160;line-height:1.3">{{ c.t }}</span><span style="font-size:16px;line-height:1.5;color:#4B5A78">{{ c.d }}</span><span style="font-size:16px;font-weight:700;color:#0E1B36;border-top:1px solid #E6EDF7;padding-top:16px;margin-top:auto">{{ c.r }}</span></div></sc-for>
+<div style="background:#0B2160;color:#ffffff;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:20px;position:relative;overflow:hidden"><div style="position:absolute;width:260px;height:260px;border-radius:50%;border:1px solid rgba(70,184,240,.35);right:-120px;top:-120px"></div><span style="font-family:'Source Serif 4',serif;font-size:56px;line-height:.6;color:#46B8F0">“</span><span style="font-family:'Source Serif 4',serif;font-size:21px;line-height:1.4">[Reseña real de un cliente, con permiso para publicarla.]</span><div style="margin-top:auto;display:flex;flex-direction:column;gap:2px"><span style="font-weight:700;font-size:16px">[Nombre, cargo]</span><span style="font-size:16px;color:#B9C8E6">[Empresa · sector]</span></div></div>
+</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:120px 56px 0">
+<div style="display:flex;flex-direction:column;gap:14px;margin-bottom:40px"><div style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1E56C8">Equipo</div><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:42px;line-height:1.12;color:#0B2160;margin:0">Quiénes firman sus informes</h2></div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px">
+<sc-for list="{{ team }}" as="m" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:14px"><div style="aspect-ratio:4/5;border-radius:12px;background:repeating-linear-gradient(135deg,#EEF4FC 0 12px,#E3ECF8 12px 24px);display:flex;align-items:flex-end;padding:12px"><span style="font:12px ui-monospace,Menlo,monospace;color:#5D6E90;background:#ffffff;padding:4px 8px;border-radius:4px">foto retrato</span></div><div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:19px;font-weight:700;color:#0B2160">{{ m.n }}</span><span style="font-size:16px;color:#0E1B36">{{ m.r }}</span><span style="font-size:16px;color:#4B5A78">{{ m.tp }}</span></div></div></sc-for>
+</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:120px 56px 120px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:64px">
+<div style="display:flex;flex-direction:column;gap:18px"><div style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1E56C8">Preguntas frecuentes</div><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:42px;line-height:1.12;color:#0B2160;margin:0">Lo que nos preguntan antes de empezar</h2><p style="font-size:17px;line-height:1.5;color:#4B5A78;margin:0">¿Otra duda? Llámenos al <a href="#" style="font-weight:700">300 992 9223</a>.</p></div>
+<div style="border-top:1px solid #D8E3F3">
+<sc-for list="{{ faqD }}" as="f" hint-placeholder-count="5"><div style="border-bottom:1px solid #D8E3F3"><button onClick="{{ f.toggle }}" aria-expanded="{{ f.exp }}" style="width:100%;background:transparent;border:0;text-align:left;cursor:pointer;padding:22px 0;display:flex;justify-content:space-between;gap:24px;align-items:center;font-size:19px;font-weight:600;color:#0B2160;min-height:44px">{{ f.q }}<span style="width:44px;height:44px;flex:none;border-radius:50%;border:1px solid #D8E3F3;display:flex;align-items:center;justify-content:center"><span style="width:18px;height:18px;display:flex">{{ f.sign }}</span></span></button><sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 68px 24px 0;font-size:17px;line-height:1.6;color:#4B5A78">{{ f.a }}</p></sc-if></div></sc-for>
+</div>
+</section>
+
+<section style="position:relative;background:#0B2160;color:#ffffff;overflow:hidden;padding:96px 56px">
+<div style="position:absolute;width:640px;height:640px;border-radius:50%;border:1px solid rgba(70,184,240,.3);left:-200px;top:-360px"></div>
+<div style="position:absolute;width:900px;height:900px;border-radius:50%;border:1px solid rgba(70,184,240,.2);right:-360px;top:-200px"></div>
+<div style="position:relative;max-width:1056px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:48px">
+<div style="display:flex;flex-direction:column;gap:14px"><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:48px;line-height:1.1;margin:0">¿Hablamos de su empresa?</h2><p style="font-size:19px;color:#C9D6EE;margin:0">Cuéntenos su caso y le enviamos una propuesta con alcance y tiempos.</p></div>
+<div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;flex:none">
+<button style="background:#46B8F0;color:#071538;font-weight:700;font-size:17px;height:56px;padding:0 28px;border:0;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:10px" style-hover="background:#6CC7F4">Solicitar asesoría<span style="width:20px;height:20px;display:flex">{{ ic.arrow }}</span></button>
+<a href="#" style="color:#ffffff;font-size:16px;font-weight:600;display:flex;align-items:center;gap:8px;min-height:44px"><span style="width:20px;height:20px;display:flex">{{ ic.wa }}</span>o escríbanos por WhatsApp</a>
+</div>
+</div>
+</section>
+
+<footer style="background:#071538;color:#C9D6EE;padding:72px 56px 32px">
+<div style="max-width:1056px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:48px">
+<div style="display:flex;flex-direction:column;gap:20px"><div style="display:flex;align-items:center;gap:12px"><div style="width:40px;height:40px;color:#ffffff">{{ ic.logo }}</div><div style="display:flex;flex-direction:column;gap:3px;line-height:1"><span style="font-family:'Source Serif 4',serif;font-weight:700;font-size:21px;letter-spacing:.06em;color:#ffffff">TRIALLIANCE</span><span style="font-size:11px;font-weight:600;letter-spacing:.24em;color:#8FD3F7">AUDITORES S.A.S.</span></div></div><p style="margin:0;font-size:16px;line-height:1.5;max-width:260px">Su confianza, nuestro mayor compromiso.</p><div style="display:flex;gap:8px"><a href="#" aria-label="LinkedIn" style="width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#ffffff;font-weight:700;font-size:16px">in</a><a href="#" aria-label="Facebook" style="width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#ffffff;font-weight:700;font-size:16px">f</a><a href="#" aria-label="Instagram" style="width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#ffffff"><span style="width:20px;height:20px;display:flex">{{ ic.ig }}</span></a></div></div>
+<sc-for list="{{ footCols }}" as="col" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;gap:6px"><span style="font-weight:700;color:#ffffff;font-size:16px;margin-bottom:8px">{{ col.t }}</span><sc-for list="{{ col.l }}" as="l" hint-placeholder-count="4"><a href="#" style="color:#C9D6EE;font-size:16px;padding:6px 0">{{ l }}</a></sc-for></div></sc-for>
+</div>
+<div style="max-width:1056px;margin:56px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:8px 24px;font-size:16px;color:#9FB2D6"><span>TriAlliance Auditores S.A.S.</span><span>NIT [000.000.000-0]</span><a href="#" style="color:#9FB2D6;text-decoration:underline">Política de tratamiento de datos</a><span style="margin-left:auto">© 2026</span></div>
+</footer>
+</div></div>
+
+<div class="dv-opt" id="1b"><div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Portada · móvil 390 (desplazable, menú funcional)</div>
+<div class="dv-card" style="width:390px;height:844px;position:relative;border-radius:28px;border:8px solid #0E1B36">
+<div style="position:absolute;inset:0;overflow-y:auto;background:#ffffff">
+<header style="position:sticky;top:0;z-index:5;height:64px;background:#ffffff;border-bottom:1px solid #D8E3F3;display:flex;align-items:center;justify-content:space-between;padding:0 12px 0 20px">
+<div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;color:#0B2160">{{ ic.logo }}</div><div style="display:flex;flex-direction:column;gap:2px;line-height:1"><span style="font-family:'Source Serif 4',serif;font-weight:700;font-size:17px;letter-spacing:.06em;color:#0B2160">TRIALLIANCE</span><span style="font-size:9px;font-weight:600;letter-spacing:.24em;color:#1E56C8">AUDITORES S.A.S.</span></div></div>
+<button onClick="{{ openMenu }}" aria-label="Abrir menú" style="width:48px;height:48px;border:0;background:transparent;color:#0B2160;display:flex;align-items:center;justify-content:center;cursor:pointer"><span style="width:26px;height:26px;display:flex">{{ ic.menu }}</span></button>
+</header>
+<section style="position:relative;background:#071538;color:#ffffff;overflow:hidden;padding:48px 20px 96px">
+<div style="position:absolute;width:420px;height:420px;border-radius:50%;border:1px solid rgba(70,184,240,.28);right:-220px;top:-200px"></div>
+<div style="position:relative;display:flex;flex-direction:column;gap:20px">
+<div style="font-size:16px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8FD3F7">Revisoría fiscal · Colombia</div>
+<h1 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:36px;line-height:1.1;margin:0">Más control, mejor gestión y decisiones con respaldo.</h1>
+<p style="font-size:17px;line-height:1.5;color:#C9D6EE;margin:0">Revisoría fiscal y auditoría independiente, bajo NIA y NIIF.</p>
+<button style="background:#46B8F0;color:#071538;font-weight:700;font-size:17px;height:54px;border:0;border-radius:8px;cursor:pointer">Solicitar asesoría</button>
+<a href="#" style="color:#ffffff;font-size:16px;font-weight:600;text-align:center;min-height:44px;display:flex;align-items:center;justify-content:center;text-decoration:underline">Explorar servicios</a>
+<div style="height:200px;border-radius:12px;background:repeating-linear-gradient(135deg,#10306F 0 14px,#0D2A63 14px 28px);display:flex;align-items:center;justify-content:center"><span style="font:12px ui-monospace,Menlo,monospace;color:#8FA7D4;background:#0B2160;padding:5px 8px;border-radius:4px">foto real · equipo</span></div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:-1px;height:56px">{{ waveW }}</div>
+</section>
+<section style="padding:8px 20px 0;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<sc-for list="{{ trust }}" as="t" hint-placeholder-count="5"><div style="border:1px solid #D8E3F3;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:6px"><span style="width:24px;height:24px;color:#1E56C8;display:flex">{{ t.icon }}</span><span style="font-weight:700;font-size:16px;color:#0B2160">{{ t.k }}</span><span style="font-size:16px;line-height:1.35;color:#4B5A78">{{ t.v }}</span></div></sc-for>
+</section>
+<section style="padding:72px 20px 0;display:flex;flex-direction:column;gap:14px">
+<h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:30px;line-height:1.15;color:#0B2160;margin:0 0 10px">¿Qué necesita su empresa?</h2>
+<sc-for list="{{ needs }}" as="n" hint-placeholder-count="4"><a href="#" style="background:#EEF4FC;border:1px solid #D8E3F3;border-radius:12px;padding:18px;display:flex;gap:14px;align-items:center;color:#0E1B36;text-decoration:none;min-height:44px"><span style="width:28px;height:28px;color:#1E56C8;display:flex;flex:none">{{ n.icon }}</span><span style="display:flex;flex-direction:column;gap:6px;flex:1"><span style="font-size:17px;font-weight:600;line-height:1.35">{{ n.q }}</span><span style="font-size:16px;font-weight:700;color:#1E56C8">{{ n.svc }}</span></span><span style="width:20px;height:20px;color:#1E56C8;display:flex;flex:none">{{ ic.arrow }}</span></a></sc-for>
+</section>
+<section style="padding:72px 20px 0;display:flex;flex-direction:column;gap:10px">
+<h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:30px;line-height:1.15;color:#0B2160;margin:0 0 14px">Cumplir la norma y decidir con información confiable</h2>
+<sc-for list="{{ svcM }}" as="s" hint-placeholder-count="9"><div style="border:1px solid #D8E3F3;border-radius:12px"><button onClick="{{ s.toggle }}" aria-expanded="{{ s.exp }}" style="width:100%;background:transparent;border:0;text-align:left;cursor:pointer;padding:14px 12px 14px 16px;display:flex;gap:14px;align-items:center;color:#0B2160;min-height:64px"><span style="width:26px;height:26px;color:#1E56C8;display:flex;flex:none">{{ s.icon }}</span><span style="font-size:17px;font-weight:700;flex:1">{{ s.t }}</span><span style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex:none"><span style="width:18px;height:18px;display:flex">{{ s.sign }}</span></span></button><sc-if value="{{ s.open }}" hint-placeholder-val="{{ false }}"><div style="padding:0 16px 16px 56px;display:flex;flex-direction:column;gap:8px"><span style="font-size:16px;line-height:1.45;color:#4B5A78">{{ s.d }}</span><a href="#" style="font-size:16px;font-weight:700;min-height:44px;display:flex;align-items:center">Ver servicio →</a></div></sc-if></div></sc-for>
+</section>
+<section style="margin:72px 0 0;padding:48px 20px;background:#EEF4FC;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:30px;line-height:1.15;color:#0B2160;margin:0">Un solo equipo independiente para toda su revisión</h2>
+<sc-for list="{{ why }}" as="w" hint-placeholder-count="4"><div style="display:flex;gap:14px"><span style="width:28px;height:28px;color:#1E56C8;display:flex;flex:none">{{ w.icon }}</span><div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:700;color:#0B2160">{{ w.t }}</span><span style="font-size:16px;line-height:1.5;color:#4B5A78">{{ w.d }}</span></div></div></sc-for>
+</section>
+<section style="padding:72px 20px 0">
+<h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:30px;line-height:1.15;color:#0B2160;margin:0 0 28px">Cinco etapas claras, de la primera reunión al informe</h2>
+<sc-for list="{{ steps }}" as="p" hint-placeholder-count="5"><div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px"><div style="display:flex;flex-direction:column;align-items:center"><span style="width:44px;height:44px;border-radius:50%;border:2px solid #0B2160;color:#0B2160;font-family:'Source Serif 4',serif;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;flex:none">{{ p.n }}</span><span style="width:2px;flex:1;background:#BFD3F0;min-height:16px"></span></div><div style="display:flex;flex-direction:column;gap:4px;padding:8px 0 28px"><span style="font-size:17px;font-weight:700;color:#0B2160">{{ p.t }}</span><span style="font-size:16px;line-height:1.5;color:#4B5A78">{{ p.d }}</span></div></div></sc-for>
+</section>
+<section style="padding:44px 20px 0">
+<h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:30px;line-height:1.15;color:#0B2160;margin:0 0 20px">Quiénes firman sus informes</h2>
+<div style="display:flex;gap:12px;overflow-x:auto;margin:0 -20px;padding:0 20px 8px">
+<sc-for list="{{ team }}" as="m" hint-placeholder-count="4"><div style="flex:none;width:200px;display:flex;flex-direction:column;gap:10px"><div style="height:230px;border-radius:12px;background:repeating-linear-gradient(135deg,#EEF4FC 0 12px,#E3ECF8 12px 24px)"></div><span style="font-size:17px;font-weight:700;color:#0B2160">{{ m.n }}</span><span style="font-size:16px;color:#4B5A78">{{ m.r }}</span></div></sc-for>
+</div>
+</section>
+<section style="padding:72px 20px 72px">
+<h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:30px;line-height:1.15;color:#0B2160;margin:0 0 16px">Preguntas frecuentes</h2>
+<sc-for list="{{ faqM }}" as="f" hint-placeholder-count="5"><div style="border-bottom:1px solid #D8E3F3"><button onClick="{{ f.toggle }}" aria-expanded="{{ f.exp }}" style="width:100%;background:transparent;border:0;text-align:left;cursor:pointer;padding:14px 0;display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:17px;font-weight:600;color:#0B2160">{{ f.q }}<span style="width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:18px;height:18px;display:flex">{{ f.sign }}</span></span></button><sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 0 18px;font-size:16px;line-height:1.55;color:#4B5A78">{{ f.a }}</p></sc-if></div></sc-for>
+</section>
+<section style="position:relative;background:#0B2160;color:#ffffff;padding:56px 20px;overflow:hidden;display:flex;flex-direction:column;gap:16px">
+<div style="position:absolute;width:380px;height:380px;border-radius:50%;border:1px solid rgba(70,184,240,.3);right:-200px;top:-180px"></div>
+<h2 style="position:relative;font-family:'Source Serif 4',serif;font-weight:600;font-size:32px;line-height:1.1;margin:0">¿Hablamos de su empresa?</h2>
+<p style="position:relative;font-size:17px;color:#C9D6EE;margin:0;line-height:1.5">Cuéntenos su caso y le enviamos una propuesta con alcance y tiempos.</p>
+<button style="position:relative;background:#46B8F0;color:#071538;font-weight:700;font-size:17px;height:54px;border:0;border-radius:8px;cursor:pointer;margin-top:8px">Solicitar asesoría</button>
+</section>
+<footer style="background:#071538;color:#C9D6EE;padding:40px 20px 120px;display:flex;flex-direction:column;gap:24px;font-size:16px">
+<div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;color:#ffffff">{{ ic.logo }}</div><span style="font-family:'Source Serif 4',serif;font-weight:700;font-size:18px;letter-spacing:.06em;color:#ffffff">TRIALLIANCE</span></div>
+<div style="display:flex;flex-direction:column;gap:4px"><a href="#" style="color:#ffffff;min-height:44px;display:flex;align-items:center;gap:10px"><span style="width:20px;height:20px;display:flex">{{ ic.phone }}</span>300 992 9223</a><a href="#" style="color:#ffffff;min-height:44px;display:flex;align-items:center;gap:10px"><span style="width:20px;height:20px;display:flex">{{ ic.mail }}</span>comercialtrialliance@gmail.com</a></div>
+<div style="border-top:1px solid rgba(255,255,255,.14);padding-top:18px;display:flex;flex-direction:column;gap:6px;color:#9FB2D6"><span>TriAlliance Auditores S.A.S. · NIT [000.000.000-0]</span><a href="#" style="color:#9FB2D6;text-decoration:underline">Política de tratamiento de datos</a><span>© 2026</span></div>
+</footer>
+</div>
+<sc-if value="{{ isBar }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:0;right:0;bottom:0;z-index:6;background:#ffffff;border-top:1px solid #D8E3F3;padding:10px 12px 14px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:10px;box-shadow:0 -6px 20px rgba(11,33,96,.08)">
+<a href="#" style="height:50px;border:1px solid #0B2160;border-radius:8px;color:#0B2160;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none"><span style="width:20px;height:20px;display:flex">{{ ic.wa }}</span>WhatsApp</a>
+<button style="height:50px;background:#46B8F0;color:#071538;font-weight:700;font-size:16px;border:0;border-radius:8px;cursor:pointer">Solicitar asesoría</button>
+</div>
+</sc-if>
+<sc-if value="{{ isFloat }}" hint-placeholder-val="{{ false }}">
+<a href="#" aria-label="Escribir por WhatsApp" style="position:absolute;right:16px;bottom:20px;z-index:6;width:60px;height:60px;border-radius:50%;background:#0B2160;color:#ffffff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(7,21,56,.35)"><span style="width:28px;height:28px;display:flex">{{ ic.wa }}</span></a>
+</sc-if>
+<sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;z-index:10;background:#071538;color:#ffffff;display:flex;flex-direction:column;padding:0 12px 28px 20px;overflow:hidden">
+<div style="position:absolute;width:420px;height:420px;border-radius:50%;border:1px solid rgba(70,184,240,.25);right:-240px;bottom:-120px"></div>
+<div style="height:64px;display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Source Serif 4',serif;font-weight:700;font-size:17px;letter-spacing:.06em">TRIALLIANCE</span><button onClick="{{ closeMenu }}" aria-label="Cerrar menú" style="width:48px;height:48px;border:0;background:transparent;color:#ffffff;display:flex;align-items:center;justify-content:center;cursor:pointer"><span style="width:26px;height:26px;display:flex">{{ ic.x }}</span></button></div>
+<nav style="position:relative;display:flex;flex-direction:column;margin-top:24px;padding-right:8px">
+<sc-for list="{{ navItems }}" as="it" hint-placeholder-count="6"><a href="#" onClick="{{ closeMenu }}" style="color:#ffffff;font-family:'Source Serif 4',serif;font-size:28px;font-weight:600;min-height:60px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.12);text-decoration:none">{{ it }}<span style="width:20px;height:20px;color:#46B8F0;display:flex">{{ ic.arrow }}</span></a></sc-for>
+</nav>
+<div style="position:relative;margin-top:auto;display:flex;flex-direction:column;gap:12px;padding-right:8px">
+<button style="height:54px;background:#46B8F0;color:#071538;font-weight:700;font-size:17px;border:0;border-radius:8px;cursor:pointer">Solicitar asesoría</button>
+<a href="#" style="color:#ffffff;font-size:16px;min-height:44px;display:flex;align-items:center;justify-content:center;gap:10px"><span style="width:20px;height:20px;display:flex">{{ ic.phone }}</span>300 992 9223</a>
+</div>
+</div>
+</sc-if>
+</div></div>
+
+<div class="dv-opt" id="1c"><div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Plantilla de servicio · Revisoría Fiscal · escritorio</div>
+<div class="dv-card" style="width:1280px">
+<header style="height:80px;background:#ffffff;border-bottom:1px solid #D8E3F3;display:flex;align-items:center;padding:0 56px;gap:40px">
+<div style="display:flex;align-items:center;gap:12px;flex:none"><div style="width:40px;height:40px;color:#0B2160">{{ ic.logo }}</div><div style="display:flex;flex-direction:column;gap:3px;line-height:1"><span style="font-family:'Source Serif 4',serif;font-weight:700;font-size:21px;letter-spacing:.06em;color:#0B2160">TRIALLIANCE</span><span style="font-size:11px;font-weight:600;letter-spacing:.24em;color:#1E56C8">AUDITORES S.A.S.</span></div></div>
+<nav style="display:flex;gap:4px;margin-left:auto"><a href="#" style="font-size:16px;font-weight:700;color:#0B2160;padding:12px 12px;box-shadow:inset 0 -2px 0 #46B8F0">Servicios</a><a href="#" style="font-size:16px;font-weight:500;color:#0E1B36;padding:12px 12px">Nosotros</a><a href="#" style="font-size:16px;font-weight:500;color:#0E1B36;padding:12px 12px">Cómo trabajamos</a><a href="#" style="font-size:16px;font-weight:500;color:#0E1B36;padding:12px 12px">Casos</a><a href="#" style="font-size:16px;font-weight:500;color:#0E1B36;padding:12px 12px">Recursos</a><a href="#" style="font-size:16px;font-weight:500;color:#0E1B36;padding:12px 12px">Contacto</a></nav>
+<button style="background:#46B8F0;color:#071538;font-weight:700;font-size:16px;height:48px;padding:0 22px;border:0;border-radius:8px;cursor:pointer;flex:none" style-hover="background:#6CC7F4">Solicitar asesoría</button>
+</header>
+
+<section style="position:relative;background:#071538;color:#ffffff;overflow:hidden;padding:56px 0 128px">
+<div style="position:absolute;width:640px;height:640px;border-radius:50%;border:1px solid rgba(70,184,240,.28);right:-160px;top:-300px"></div>
+<div style="position:relative;max-width:1168px;margin:0 auto;padding:0 56px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:64px;align-items:end">
+<div style="display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;gap:10px;font-size:16px;color:#9FB2D6"><a href="#" style="color:#C9D6EE">Inicio</a><span>/</span><a href="#" style="color:#C9D6EE">Servicios</a><span>/</span><span style="color:#ffffff">Revisoría Fiscal</span></div>
+<h1 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:60px;line-height:1.05;margin:16px 0 0">Revisoría Fiscal</h1>
+<p style="font-size:20px;line-height:1.5;color:#C9D6EE;margin:0;max-width:560px">Vigilancia permanente y dictamen independiente para que la asamblea y los socios decidan con respaldo.</p>
+<div style="display:flex;gap:24px;align-items:center;padding-top:8px"><button style="background:#46B8F0;color:#071538;font-weight:700;font-size:17px;height:56px;padding:0 28px;border:0;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:10px" style-hover="background:#6CC7F4">Solicitar asesoría<span style="width:20px;height:20px;display:flex">{{ ic.arrow }}</span></button><a href="#" style="color:#ffffff;font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px;min-height:44px"><span style="width:20px;height:20px;display:flex">{{ ic.phone }}</span>300 992 9223</a></div>
+</div>
+<div style="background:rgba(255,255,255,.06);border:1px solid rgba(143,211,247,.35);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px">
+<span style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8FD3F7">Obligatoria por ley</span>
+<span style="font-size:18px;line-height:1.5;color:#ffffff">Para sociedades con activos brutos ≥ 5.000 SMMLV o ingresos brutos ≥ 3.000 SMMLV al 31 de diciembre del año anterior.</span>
+<span style="font-size:16px;color:#9FB2D6">Ley 43 de 1990, art. 13, parágrafo 2.</span>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:-1px;height:80px">{{ waveW }}</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:64px 56px 0;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:64px">
+<div style="display:flex;flex-direction:column;gap:14px"><div style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1E56C8">¿Es para su empresa?</div><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:40px;line-height:1.12;color:#0B2160;margin:0">Si marca al menos una, conversemos</h2></div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ svcCheck }}" as="c" hint-placeholder-count="5"><div style="display:flex;gap:16px;align-items:center;padding:18px 20px;border:1px solid #D8E3F3;border-radius:10px;font-size:18px;line-height:1.4"><span style="width:28px;height:28px;border-radius:6px;background:#0B2160;color:#ffffff;display:flex;align-items:center;justify-content:center;flex:none"><span style="width:18px;height:18px;display:flex">{{ ic.check }}</span></span>{{ c }}</div></sc-for>
+</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:112px 56px 0">
+<div style="display:flex;flex-direction:column;gap:14px;margin-bottom:40px"><div style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1E56C8">Qué incluye</div><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:40px;line-height:1.12;color:#0B2160;margin:0">Una evaluación integral de su organización</h2></div>
+<div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px">
+<sc-for list="{{ svcIncl }}" as="s" hint-placeholder-count="5"><div style="background:#EEF4FC;border-radius:12px;padding:24px 20px;display:flex;flex-direction:column;gap:14px"><span style="width:30px;height:30px;color:#1E56C8;display:flex">{{ s.icon }}</span><span style="font-size:18px;font-weight:700;color:#0B2160;line-height:1.3">{{ s.t }}</span><span style="font-size:16px;line-height:1.45;color:#4B5A78">{{ s.d }}</span></div></sc-for>
+</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:112px 56px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px">
+<div style="display:flex;flex-direction:column;gap:14px"><div style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1E56C8">Entregables</div><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:40px;line-height:1.12;color:#0B2160;margin:0">Lo que recibe, por escrito y firmado</h2><p style="font-size:17px;line-height:1.55;color:#4B5A78;margin:0;max-width:420px">Cada documento lo firma un contador público con tarjeta profesional vigente.</p></div>
+<div style="border-top:1px solid #D8E3F3">
+<sc-for list="{{ svcDeliv }}" as="d" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:16px;align-items:center;padding:20px 0;border-bottom:1px solid #D8E3F3"><span style="width:28px;height:28px;color:#1E56C8;display:flex">{{ ic.doc }}</span><span style="font-size:18px;font-weight:600;color:#0B2160">{{ d.t }}</span><span style="font-size:16px;color:#4B5A78">{{ d.f }}</span></div></sc-for>
+</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:112px 56px 0">
+<div style="display:flex;flex-direction:column;gap:14px;margin-bottom:56px"><div style="font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1E56C8">Proceso</div><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:40px;line-height:1.12;color:#0B2160;margin:0">Así acompañamos su año fiscal</h2></div>
+<div style="position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px">
+<div style="position:absolute;left:28px;right:28px;top:27px;height:2px;background:linear-gradient(90deg,#0B2160,#46B8F0)"></div>
+<sc-for list="{{ svcSteps }}" as="p" hint-placeholder-count="5"><div style="position:relative;display:flex;flex-direction:column;gap:12px"><span style="width:56px;height:56px;border-radius:50%;background:#ffffff;border:2px solid #0B2160;color:#0B2160;font-family:'Source Serif 4',serif;font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center">{{ p.n }}</span><span style="font-size:16px;font-weight:600;color:#1E56C8;padding-top:6px">{{ p.w }}</span><span style="font-size:19px;font-weight:700;color:#0B2160">{{ p.t }}</span><span style="font-size:16px;line-height:1.5;color:#4B5A78">{{ p.d }}</span></div></sc-for>
+</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:112px 56px 0;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:48px;align-items:start">
+<div><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:36px;line-height:1.12;color:#0B2160;margin:0 0 20px">Preguntas sobre revisoría fiscal</h2><div style="border-top:1px solid #D8E3F3">
+<sc-for list="{{ faqS }}" as="f" hint-placeholder-count="4"><div style="border-bottom:1px solid #D8E3F3"><button onClick="{{ f.toggle }}" aria-expanded="{{ f.exp }}" style="width:100%;background:transparent;border:0;text-align:left;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;gap:24px;align-items:center;font-size:18px;font-weight:600;color:#0B2160">{{ f.q }}<span style="width:44px;height:44px;flex:none;border-radius:50%;border:1px solid #D8E3F3;display:flex;align-items:center;justify-content:center"><span style="width:18px;height:18px;display:flex">{{ f.sign }}</span></span></button><sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 68px 22px 0;font-size:17px;line-height:1.6;color:#4B5A78">{{ f.a }}</p></sc-if></div></sc-for>
+</div></div>
+<div style="border:1px solid #D8E3F3;border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:16px">
+<span style="align-self:flex-start;font-size:16px;font-weight:600;color:#0B2160;background:#EEF4FC;padding:4px 10px;border-radius:6px">Caso relacionado</span>
+<span style="font-size:22px;font-weight:700;color:#0B2160;line-height:1.3">[Empresa del sector comercio, activos de 6.200 SMMLV]</span>
+<span style="font-size:16px;line-height:1.55;color:#4B5A78">[Reto: primer año obligada a revisoría fiscal. Qué se hizo y en cuánto tiempo.]</span>
+<span style="font-size:17px;font-weight:700;color:#0E1B36;border-top:1px solid #E6EDF7;padding-top:16px">[Resultado medible: dictamen entregado antes de la asamblea de marzo]</span>
+<a href="#" style="font-size:16px;font-weight:700;display:flex;align-items:center;gap:6px;min-height:44px">Leer el caso<span style="width:16px;height:16px;display:flex">{{ ic.arrow }}</span></a>
+</div>
+</section>
+
+<section style="position:relative;background:#0B2160;color:#ffffff;overflow:hidden;padding:80px 56px;margin-top:112px">
+<div style="position:absolute;width:640px;height:640px;border-radius:50%;border:1px solid rgba(70,184,240,.3);left:-200px;top:-360px"></div>
+<div style="position:relative;max-width:1056px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px"><h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:42px;line-height:1.1;margin:0">¿Su empresa necesita revisor fiscal?</h2><p style="font-size:19px;color:#C9D6EE;margin:0">Le confirmamos si está obligada y qué implicaría para su caso.</p></div>
+<button style="flex:none;background:#46B8F0;color:#071538;font-weight:700;font-size:17px;height:56px;padding:0 28px;border:0;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:10px" style-hover="background:#6CC7F4">Solicitar asesoría<span style="width:20px;height:20px;display:flex">{{ ic.arrow }}</span></button>
+</div>
+</section>
+
+<section style="max-width:1168px;margin:0 auto;padding:88px 56px 96px">
+<h2 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:32px;line-height:1.12;color:#0B2160;margin:0 0 28px">Servicios relacionados</h2>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+<sc-for list="{{ related }}" as="r" hint-placeholder-count="3"><a href="#" style="border:1px solid #D8E3F3;border-radius:12px;padding:24px;display:flex;gap:16px;align-items:flex-start;color:#0E1B36;text-decoration:none" style-hover="border-color:#1E56C8;text-decoration:none"><span style="width:28px;height:28px;color:#1E56C8;display:flex;flex:none">{{ r.icon }}</span><span style="display:flex;flex-direction:column;gap:6px;flex:1"><span style="font-size:18px;font-weight:700;color:#0B2160">{{ r.t }}</span><span style="font-size:16px;line-height:1.45;color:#4B5A78">{{ r.d }}</span></span><span style="width:18px;height:18px;color:#1E56C8;display:flex;flex:none;margin-top:4px">{{ ic.arrow }}</span></a></sc-for>
+</div>
+</section>
+<footer style="background:#071538;color:#9FB2D6;padding:28px 56px;display:flex;gap:24px;font-size:16px"><span>TriAlliance Auditores S.A.S. · NIT [000.000.000-0]</span><a href="#" style="color:#9FB2D6;text-decoration:underline">Política de tratamiento de datos</a><span style="margin-left:auto">Pie completo igual a <a class="dv-oid" href="#1a">1a</a> · © 2026</span></footer>
+</div></div>
+
+</div>
+<p class="dv-next">Probar: "versión móvil de la página de servicio <a class="dv-oid" href="#1c">1c</a>" · "otra opción de hero para <a class="dv-oid" href="#1a">1a</a> con más presencia del logo" · "formulario de Solicitar asesoría".</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroMedia&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;foto&quot;,&quot;gráfico&quot;],&quot;default&quot;:&quot;foto&quot;,&quot;tsType&quot;:&quot;'foto'|'gráfico'&quot;,&quot;section&quot;:&quot;Portada&quot;},&quot;mobileCta&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;barra&quot;,&quot;flotante&quot;],&quot;default&quot;:&quot;barra&quot;,&quot;tsType&quot;:&quot;'barra'|'flotante'&quot;,&quot;section&quot;:&quot;Móvil&quot;}}">
+const P = {
+  logo:["M12 2.5a9.5 9.5 0 1 1 0 19a9.5 9.5 0 1 1 0-19z","M12 6L18 16.5H6z","M12 10.5l3 6"],
+  shield:["M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z","M9 12l2 2 4-4"],
+  badge:["M4 5h16v14H4z","M7 15h6","M7 11h4","M16.5 9a1.5 1.5 0 1 1 0 3a1.5 1.5 0 1 1 0-3z"],
+  book:["M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z","M5 19.5A1.5 1.5 0 0 0 6.5 21H19","M9 7h6"],
+  building:["M4 21h16","M6 21V4h9v17","M15 9h3v12","M9 8h3","M9 12h3","M9 16h3"],
+  clock:["M12 3a9 9 0 1 1 0 18a9 9 0 1 1 0-18z","M12 7v5l3 2"],
+  calc:["M6 3h12v18H6z","M9 6h6v3H9z","M9 13h.01","M12 13h.01","M15 13h.01","M9 17h.01","M12 17h.01","M15 17h.01"],
+  doc:["M6 3h8l4 4v14H6z","M14 3v4h4","M9 12h6","M9 16h4"],
+  docCheck:["M6 3h8l4 4v6","M14 3v4h4","M6 3v18h6","M9 12h5","M14 18l2 2 4-4"],
+  users:["M9 11a3 3 0 1 0 0-6a3 3 0 1 0 0 6z","M3 20c0-3 2.7-5 6-5s6 2 6 5","M16 5.3a3 3 0 0 1 0 5.4","M18 15.2c1.8.6 3 2.3 3 4.8"],
+  monitor:["M3 4h18v12H3z","M8 20h8","M12 16v4","M9 10l2 2 4-4"],
+  scale:["M12 3v18","M8 21h8","M5 7h14","M5 7l-3 6a3 3 0 0 0 6 0z","M19 7l-3 6a3 3 0 0 0 6 0z"],
+  helmet:["M3.5 17h17","M5 17a7 7 0 0 1 14 0","M10 10V6.5h4V10","M7 20h10"],
+  brief:["M3 7h18v13H3z","M8 7V4h8v3","M3 12h18","M11 12v2h2v-2"],
+  eye:["M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z","M12 9a3 3 0 1 1 0 6a3 3 0 1 1 0-6z"],
+  layers:["M12 3l9 5-9 5-9-5z","M3 13l9 5 9-5"],
+  chart:["M4 20h16","M7 16v-4","M12 16V8","M17 16V5"],
+  msg:["M4 5h16v11H9l-5 4z","M8 9h8","M8 12h5"],
+  arrow:["M5 12h14","M13 6l6 6-6 6"],
+  plus:["M12 5v14","M5 12h14"],
+  minus:["M5 12h14"],
+  check:["M5 12.5l4.5 4.5L19 7.5"],
+  menu:["M4 7h16","M4 12h16","M4 17h16"],
+  x:["M6 6l12 12","M18 6L6 18"],
+  phone:["M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"],
+  mail:["M3 6h18v12H3z","M3 7l9 6 9-6"],
+  wa:["M4 20l1.3-3.9A8.5 8.5 0 1 1 8 19z","M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"],
+  ig:["M4 4h16v16H4z","M12 8.5a3.5 3.5 0 1 1 0 7a3.5 3.5 0 1 1 0-7z","M16.8 7.2h.01"]
+};
+const mkIc = n => React.createElement('svg',{viewBox:'0 0 24 24',width:'100%',height:'100%',fill:'none',stroke:'currentColor',strokeWidth:1.6,strokeLinecap:'round',strokeLinejoin:'round','aria-hidden':true},P[n].map((d,i)=>React.createElement('path',{key:i,d})));
+const IC = {}; Object.keys(P).forEach(k=>IC[k]=mkIc(k));
+const WAVE = React.createElement('svg',{viewBox:'0 0 1440 90',preserveAspectRatio:'none',width:'100%',height:'100%',style:{display:'block'}},
+  React.createElement('path',{d:'M0 90V48C260 4 520 0 760 34s460 48 680 6V90z',fill:'#ffffff'}),
+  React.createElement('path',{d:'M0 52C260 8 520 4 760 38s460 48 680 6',fill:'none',stroke:'#46B8F0',strokeWidth:2,opacity:.55}));
+
+const SVC = [
+  ['shield','Revisoría Fiscal','Vigilancia permanente y dictamen independiente, como exige la ley.',['Dictamen sobre estados financieros','Informes a la asamblea y la junta','Evaluación continua del control interno']],
+  ['docCheck','Auditoría Externa','Opinión independiente sobre sus estados financieros, según el alcance que requiera.',['Alcance definido con usted','Útil ante bancos, socios o inversionistas','Informe bajo NIA']],
+  ['calc','Auditoría Financiera y Contable','Verificamos que sus cifras reflejen la realidad de la empresa.',['Revisión de saldos y conciliaciones','Aplicación de NIIF','Ajustes recomendados']],
+  ['doc','Auditoría Tributaria','Revisamos declaraciones y riesgos fiscales antes que la DIAN.',['Renta, IVA, retención e ICA','Mapa de riesgos tributarios','Soporte ante requerimientos']],
+  ['users','Control Interno y Nómina','Procesos, controles y nómina revisados para reducir errores y fraude.',['Pruebas a procesos clave','Liquidación y seguridad social','Plan de mejora priorizado']],
+  ['monitor','Auditoría de TI','Seguridad, accesos y continuidad de sus sistemas de información.',['Gestión de accesos y perfiles','Respaldos y continuidad','Controles del software contable']],
+  ['scale','Auditoría Legal','Cumplimiento societario, contractual y regulatorio.',['Libros y actas societarias','Contratos y obligaciones','Reportes a entes de control']],
+  ['helmet','SG-SST','Auditoría e implementación del Sistema de Gestión de Seguridad y Salud en el Trabajo.',['Diagnóstico frente a estándares mínimos','Implementación y documentación','Auditoría anual']],
+  ['brief','Outsourcing Contable','Delegue su contabilidad y enfoque su tiempo en el crecimiento del negocio.',['Contabilidad mensual bajo NIIF','Declaraciones tributarias','Estados financieros para decidir']]
+];
+
+class Component extends DCLogic {
+  state = { open: { 'd-svc0': true, 'd-faq0': true }, menu: false };
+  toggle(k){ this.setState(s=>({open:{...s.open,[k]:!s.open[k]}})); }
+  acc(prefix, arr){ return arr.map((x,i)=>{ const k=prefix+i, o=!!this.state.open[k]; return {...x, open:o, exp:o?'true':'false', sign:o?IC.minus:IC.plus, toggle:()=>this.toggle(k)}; }); }
+  renderVals() {
+    const svc = SVC.map(([icon,t,d,items])=>({icon:IC[icon],t,d,items}));
+    const faq = [
+      {q:'¿Mi empresa está obligada a tener revisor fiscal?',a:'Sí, si es sociedad por acciones, sucursal de sociedad extranjera, o si al 31 de diciembre del año anterior tuvo activos brutos de 5.000 SMMLV o más, o ingresos brutos de 3.000 SMMLV o más (Ley 43 de 1990).'},
+      {q:'¿En qué se diferencia la revisoría fiscal de la auditoría externa?',a:'La revisoría fiscal es permanente y, en muchos casos, obligatoria por ley. La auditoría externa es un encargo puntual con el alcance que usted defina.'},
+      {q:'¿Cuánto cuesta el servicio?',a:'Depende del tamaño, el sector y el volumen de operaciones. Tras una primera reunión le enviamos una propuesta escrita con alcance, tiempos y honorarios.'},
+      {q:'¿Atienden empresas fuera de su ciudad?',a:'[Confirmar cobertura: ciudades con visita presencial y modalidad remota.]'},
+      {q:'¿Qué documentos necesitan para empezar?',a:'Estados financieros del último cierre, certificado de existencia y representación legal y las declaraciones tributarias recientes.'}
+    ];
+    return {
+      ic: IC, waveW: WAVE,
+      isPhoto: (this.props.heroMedia ?? 'foto') === 'foto',
+      isGraphic: (this.props.heroMedia ?? 'foto') !== 'foto',
+      isBar: (this.props.mobileCta ?? 'barra') === 'barra',
+      isFloat: (this.props.mobileCta ?? 'barra') !== 'barra',
+      menu: this.state.menu,
+      openMenu: ()=>this.setState({menu:true}),
+      closeMenu: ()=>this.setState({menu:false}),
+      heroChecks: ['Estados financieros','Cumplimiento tributario','Control interno y nómina','Sistemas de información'],
+      trust: [
+        {icon:IC.shield,k:'Inscrita ante la JCC',v:'Junta Central de Contadores'},
+        {icon:IC.badge,k:'T.P. vigente',v:'Contadores públicos que firman cada informe'},
+        {icon:IC.book,k:'NIA y NIIF',v:'Marco técnico del Decreto 2420 de 2015'},
+        {icon:IC.building,k:'[00] empresas',v:'atendidas desde [año]'},
+        {icon:IC.clock,k:'[00] años',v:'de trayectoria del equipo'}
+      ],
+      needs: [
+        {icon:IC.shield,q:'Mi empresa superó los topes y ahora debe tener revisor fiscal',svc:'Revisoría Fiscal'},
+        {icon:IC.docCheck,q:'Un banco o un socio me pide estados financieros auditados',svc:'Auditoría Externa'},
+        {icon:IC.helmet,q:'Debo cumplir el SG-SST antes de una visita del Ministerio',svc:'SG-SST'},
+        {icon:IC.brief,q:'Quiero dejar la contabilidad en manos de expertos',svc:'Outsourcing Contable'}
+      ],
+      svcD: this.acc('d-svc', svc),
+      svcM: this.acc('m-svc', svc),
+      why: [
+        {icon:IC.eye,t:'Independencia',d:'Sin vínculos con su administración: nuestra opinión no depende de quién paga la contabilidad.'},
+        {icon:IC.layers,t:'Visión integral',d:'Financiero, tributario, legal, nómina y TI revisados por un mismo equipo.'},
+        {icon:IC.msg,t:'Informes que se entienden',d:'Hallazgos priorizados por riesgo, con recomendaciones concretas.'},
+        {icon:IC.clock,t:'Tiempos acordados por escrito',d:'Calendario de visitas y entregas definido desde la propuesta.'}
+      ],
+      steps: [
+        {n:'1',t:'Diagnóstico',d:'Reunión para entender su empresa y sus obligaciones.'},
+        {n:'2',t:'Propuesta',d:'Alcance, cronograma y honorarios por escrito.'},
+        {n:'3',t:'Planeación',d:'Identificamos riesgos y definimos las pruebas.'},
+        {n:'4',t:'Ejecución',d:'Visitas, pruebas y revisión de soportes.'},
+        {n:'5',t:'Informe y seguimiento',d:'Resultados, recomendaciones y verificación de mejoras.'}
+      ],
+      cases: [
+        {tag:'[Sector manufactura]',t:'[Título del caso: reto concreto]',d:'[Situación inicial y qué hizo TriAlliance, en dos líneas.]',r:'[Resultado medible]'},
+        {tag:'[Sector servicios]',t:'[Título del caso: reto concreto]',d:'[Situación inicial y qué hizo TriAlliance, en dos líneas.]',r:'[Resultado medible]'}
+      ],
+      team: [
+        {n:'[Nombre Apellido]',r:'Revisoría fiscal',tp:'T.P. [00000]-T'},
+        {n:'[Nombre Apellido]',r:'Auditoría tributaria',tp:'T.P. [00000]-T'},
+        {n:'[Nombre Apellido]',r:'Control interno y TI',tp:'T.P. [00000]-T'},
+        {n:'[Nombre Apellido]',r:'SG-SST',tp:'Licencia SST [000]'}
+      ],
+      faqD: this.acc('d-faq', faq),
+      faqM: this.acc('m-faq', faq),
+      faqS: this.acc('s-faq', faq.slice(0,4)),
+      footCols: [
+        {t:'Servicios',l:['Revisoría Fiscal','Auditoría Externa','SG-SST','Outsourcing Contable']},
+        {t:'Empresa',l:['Nosotros','Cómo trabajamos','Casos','Recursos']},
+        {t:'Contacto',l:['300 992 9223','comercialtrialliance@gmail.com','WhatsApp','[Dirección, ciudad]']}
+      ],
+      navItems: ['Servicios','Nosotros','Cómo trabajamos','Casos','Recursos','Contacto'],
+      svcCheck: [
+        'Sus activos brutos superan 5.000 SMMLV',
+        'Sus ingresos brutos superan 3.000 SMMLV',
+        'Es una sociedad por acciones (S.A.)',
+        'Es sucursal de una sociedad extranjera',
+        'Sus socios o la junta quieren un control independiente'
+      ],
+      svcIncl: [
+        {icon:IC.calc,t:'Financiera y contable',d:'Razonabilidad de las cifras bajo NIIF.'},
+        {icon:IC.doc,t:'Tributaria',d:'Declaraciones y riesgos frente a la DIAN.'},
+        {icon:IC.users,t:'Control interno y nómina',d:'Procesos, controles y seguridad social.'},
+        {icon:IC.monitor,t:'Tecnologías de la información',d:'Accesos, respaldos y continuidad.'},
+        {icon:IC.scale,t:'Legal',d:'Libros, actas y cumplimiento regulatorio.'}
+      ],
+      svcDeliv: [
+        {t:'Dictamen sobre los estados financieros',f:'Anual'},
+        {t:'Informe a la asamblea de accionistas',f:'Anual'},
+        {t:'Cartas de recomendaciones de control interno',f:'Trimestral'},
+        {t:'Certificaciones que la empresa requiera',f:'A solicitud'}
+      ],
+      svcSteps: [
+        {n:'1',w:'Mes 1',t:'Conocimiento',d:'Entendemos el negocio, sus riesgos y obligaciones.'},
+        {n:'2',w:'Mes 1',t:'Plan anual',d:'Calendario de visitas y áreas a revisar.'},
+        {n:'3',w:'Durante el año',t:'Visitas y pruebas',d:'Revisión periódica de soportes y controles.'},
+        {n:'4',w:'Trimestral',t:'Recomendaciones',d:'Hallazgos priorizados a la administración.'},
+        {n:'5',w:'Cierre',t:'Dictamen',d:'Opinión firmada y presentación a la asamblea.'}
+      ],
+      related: [svc[1],svc[3],svc[8]]
+    };
+  }
+}
+</script>
+</body>
+</html>

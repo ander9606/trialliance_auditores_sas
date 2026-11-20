@@ -1,0 +1,46 @@
+---
+import Icon from "./Icon.astro";
+import Logo from "./Logo.astro";
+import { NAV_ITEMS, SITE, contactLink } from "../data/site";
+
+const currentPath = Astro.url.pathname;
+---
+<input type="checkbox" id="menu-toggle" class="menu-check" aria-label="Abrir o cerrar menú" />
+
+<header class="site-header" id="top">
+  <a class="brand" href="/">
+    <span class="mark"><Logo size={40} /></span>
+    <span class="wordmark">
+      <span class="top" translate="no">TRIALLIANCE</span>
+      <span class="bottom">AUDITORES S.A.S.</span>
+    </span>
+  </a>
+  <nav class="site-nav" aria-label="Principal">
+    {NAV_ITEMS.map((item) => (
+      <a href={item.href} aria-current={currentPath === item.href ? "page" : undefined}>{item.label}</a>
+    ))}
+  </nav>
+  <a class="btn btn-accent header-cta" href={contactLink()}>Solicitar asesoría</a>
+  <label for="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
+    <Icon name="menu" size={26} />
+  </label>
+</header>
+
+<div class="mobile-menu" aria-hidden="true">
+  <div class="decor-ring" style="width:420px;height:420px;right:-240px;bottom:-120px"></div>
+  <div class="mobile-menu-head">
+    <span class="brand-name" translate="no">TRIALLIANCE</span>
+    <label for="menu-toggle" class="mobile-menu-close" aria-label="Cerrar menú">
+      <Icon name="x" size={26} />
+    </label>
+  </div>
+  <nav class="mobile-nav" aria-label="Principal, móvil">
+    {NAV_ITEMS.map((item) => (
+      <a href={item.href}>{item.label}</a>
+    ))}
+  </nav>
+  <div class="mobile-menu-foot">
+    <a class="btn btn-accent" href={contactLink()}>Solicitar asesoría</a>
+    <a href={`tel:+${SITE.phoneIntl}`}><Icon name="phone" size={20} />{SITE.phoneDisplay}</a>
+  </div>
+</div>

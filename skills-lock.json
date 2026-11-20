@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "skills": {
+    "accessibility-scan": {
+      "source": "AccessLint/skills",
+      "sourceType": "github",
+      "computedHash": "26960081c35e33ebf7957a08504ad6a4a4f13fd13f9d85e6e06577ae5a722b7e"
+    },
+    "impeccable": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "2b8264b52e65ed93f48962cf4daa657f055f5f6533d600071edd13b78432ef3e"
+    },
+    "review-animations": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "computedHash": "60049d4d140565fe2fd22c240a6ba921069cf88c3460d7561ac772d11145ec9f"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "f3bc47f890f42a44db1007ab390709ec368e4b8c089baee6b0007182236ac474"
+    }
+  }
+}

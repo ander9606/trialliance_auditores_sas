@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import { TRUST_BAR, TEAM, contactLink } from "../data/site";
+
+const pillars = [
+  { icon: "eye", t: "Independencia", d: "Nuestra opinión no depende de quién paga la contabilidad de su empresa." },
+  { icon: "shield", t: "Rigor", d: "Procesos documentados bajo NIA y NIIF, con papeles de trabajo verificables." },
+  { icon: "layers", t: "Excelencia", d: "Un mismo equipo revisa lo financiero, tributario, legal, de nómina y de TI." },
+];
+---
+<BaseLayout
+  title="Nosotros"
+  description="Quiénes somos, nuestro propósito y el equipo de contadores públicos que firma cada informe de TriAlliance Auditores."
+>
+  <section class="hero" style="padding:48px 0 72px">
+    <div class="decor-ring" style="width:380px;height:380px;right:-180px;top:-180px"></div>
+    <div class="container" style="display:block;max-width:var(--container)">
+      <div class="hero-kicker">Nosotros</div>
+      <h1 style="margin-top:12px">Confianza, rigor y excelencia en cada informe.</h1>
+      <p class="lede" style="margin-top:12px">Somos una firma de revisoría fiscal y auditoría independiente. Un solo equipo acompaña a su empresa en lo financiero, tributario, legal, de nómina y de tecnología.</p>
+    </div>
+  </section>
+
+  <section class="trust-bar">
+    <div class="trust-bar-inner">
+      {TRUST_BAR.map((t) => (
+        <div class="trust-item">
+          <span class="icon"><Icon name={t.icon} size={26} /></span>
+          <span class="k">{t.k}</span>
+          <span class="v">{t.v}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <h2>Lo que guía cada informe que firmamos</h2>
+    </div>
+    <div class="why-grid" style="grid-template-columns:1fr">
+      {pillars.map((p) => (
+        <div class="why-item">
+          <span class="icon"><Icon name={p.icon as any} size={28} /></span>
+          <span class="t">{p.t}</span>
+          <span class="d">{p.d}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container" style="padding-bottom:64px">
+    <div class="section-head">
+      <h2>Quiénes firman sus informes</h2>
+      <p style="font-size:15px;color:var(--text-soft)">[Pendiente: fotografías reales, perfiles completos y autorización de publicación de cada socio.]</p>
+    </div>
+    <div class="team-grid">
+      {TEAM.map((m) => (
+        <div class="team-card">
+          <div class="team-photo"></div>
+          <span class="n">{m.n}</span>
+          <span class="r">{m.r}</span>
+          <span class="tp">{m.tp}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="decor-ring" style="width:380px;height:380px;left:-180px;top:-200px"></div>
+    <div class="container">
+      <h2 style="font-size:28px">¿Quiere conocer cómo trabajamos?</h2>
+      <a class="btn btn-accent" href={contactLink()}>Solicitar asesoría<Icon name="arrow" size={20} /></a>
+    </div>
+  </section>
+</BaseLayout>

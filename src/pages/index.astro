@@ -1,0 +1,200 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import WaveDivider from "../components/WaveDivider.astro";
+import { SITE, TRUST_BAR, NEEDS, WHY, PROCESS_STEPS, FAQ_GENERAL, CASES, TEAM, waLink, contactLink } from "../data/site";
+import { SERVICES } from "../data/services";
+---
+<BaseLayout
+  title={SITE.name}
+  description="Revisoría fiscal y auditoría independiente para empresas colombianas, bajo NIA y NIIF. Más control, mejor gestión y decisiones con respaldo."
+>
+  <section class="hero">
+    <div class="decor-ring" style="width:420px;height:420px;right:-220px;top:-200px"></div>
+    <div class="container">
+      <div>
+        <h1>Más control, mejor gestión y decisiones con respaldo.</h1>
+        <p class="lede">Revisoría fiscal y auditoría independiente para empresas colombianas, bajo NIA y NIIF.</p>
+        <div class="hero-actions">
+          <a class="btn btn-accent" href={contactLink()}>Solicitar asesoría<Icon name="arrow" size={20} /></a>
+          <a class="btn btn-outline-dark" href="/servicios">Explorar servicios</a>
+        </div>
+      </div>
+      <div class="hero-media-photo">
+        <span>foto real · equipo en la oficina</span>
+      </div>
+    </div>
+    <WaveDivider />
+  </section>
+
+  <section class="trust-bar">
+    <div class="trust-bar-inner">
+      {TRUST_BAR.map((t) => (
+        <div class="trust-item">
+          <span class="icon"><Icon name={t.icon} size={26} /></span>
+          <span class="k">{t.k}</span>
+          <span class="v">{t.v}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <h2>¿Qué necesita su empresa?</h2>
+      <p style="font-size:16px;color:var(--text-soft)">Elija lo que más se parece a su caso y le mostramos el servicio adecuado.</p>
+    </div>
+    <div class="needs-grid">
+      {NEEDS.map((n) => (
+        <a class="need-card" href={`/servicios/${n.slug}`}>
+          <span class="icon"><Icon name={n.icon} size={28} /></span>
+          <span>
+            <span class="q">{n.q}</span>
+            <span class="svc">{n.svc}</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <h2>Cumplir la norma y decidir con información confiable</h2>
+    </div>
+    <div class="svc-list">
+      {SERVICES.map((s, i) => (
+        <details class="svc-item" open={i === 0}>
+          <summary aria-label={s.title}>
+            <span class="svc-icon"><Icon name={s.icon} size={24} /></span>
+            <span>
+              <span class="svc-title">{s.title}</span><br />
+              <span class="svc-desc">{s.desc}</span>
+            </span>
+            <span class="svc-sign"><Icon name="arrow" size={16} /></span>
+          </summary>
+          <div class="svc-body">
+            {s.bullets.map((b) => (
+              <div class="bullet"><span class="icon"><Icon name="check" size={16} /></span>{b}</div>
+            ))}
+            <a class="btn-link" href={`/servicios/${s.slug}`}>Ver detalle del servicio</a>
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="why-panel">
+      <div class="decor-ring" style="width:280px;height:280px;left:-140px;bottom:-140px;border-color:#c7d8f2"></div>
+      <div class="section-head" style="margin-bottom:0">
+        <h2>Un solo equipo independiente para toda su revisión</h2>
+      </div>
+      <div class="why-grid">
+        {WHY.map((w) => (
+          <div class="why-item">
+            <span class="icon"><Icon name={w.icon} size={28} /></span>
+            <span class="t">{w.t}</span>
+            <span class="d">{w.d}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <h2>Cinco etapas claras, de la primera reunión al informe</h2>
+    </div>
+    <div class="steps">
+      {PROCESS_STEPS.map((p) => (
+        <div class="step">
+          <span class="step-num">{p.n}</span>
+          <div class="step-body">
+            <span class="t">{p.t}</span>
+            <span class="d">{p.d}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;width:100%;max-width:none">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <h2>Resultados que se pueden verificar</h2>
+      </div>
+      <a class="btn-link" href="/casos">Ver todos los casos</a>
+    </div>
+    <div class="cases-grid">
+      {CASES.map((c) => (
+        <div class="case-card">
+          <span class="tag">{c.tag}</span>
+          <span class="t">{c.t}</span>
+          <span class="d">{c.d}</span>
+          <span class="r">{c.r}</span>
+        </div>
+      ))}
+      <div class="quote-card">
+        <div class="decor-ring" style="width:160px;height:160px;right:-80px;top:-80px;border-color:rgba(70,184,240,.35)"></div>
+        <span class="mark">&ldquo;</span>
+        <span class="text">[Reseña real de un cliente, con permiso para publicarla.]</span>
+        <div class="who">
+          <span class="name">[Nombre, cargo]</span>
+          <span class="org">[Empresa · sector]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <h2>Quiénes firman sus informes</h2>
+    </div>
+    <div class="team-grid">
+      {TEAM.map((m) => (
+        <div class="team-card">
+          <div class="team-photo"></div>
+          <span class="n">{m.n}</span>
+          <span class="r">{m.r}</span>
+          <span class="tp">{m.tp}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container" style="padding-bottom:64px">
+    <div class="section-head" style="max-width:none;display:grid;grid-template-columns:1fr;gap:32px">
+      <div>
+        <h2>Lo que nos preguntan antes de empezar</h2>
+        <p style="font-size:16px;color:var(--text-soft);margin-top:12px">¿Otra duda? Llámenos al <a href={`tel:+${SITE.phoneIntl}`} style="font-weight:700">{SITE.phoneDisplay}</a>.</p>
+      </div>
+      <div class="faq-list">
+        {FAQ_GENERAL.map((f, i) => (
+          <details class="faq-item" open={i === 0}>
+            <summary>
+              {f.q}
+              <span class="faq-sign"><Icon name="arrow" size={16} /></span>
+            </summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="decor-ring" style="width:420px;height:420px;left:-200px;top:-260px"></div>
+    <div class="container">
+      <div>
+        <h2>¿Hablamos de su empresa?</h2>
+        <p>Cuéntenos su caso y le enviamos una propuesta con alcance y tiempos.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-accent" href={contactLink()}>Solicitar asesoría<Icon name="arrow" size={20} /></a>
+        <a class="wa-link" href={waLink("Hola, quiero más información sobre sus servicios.")}>
+          <Icon name="wa" size={20} />o escríbanos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

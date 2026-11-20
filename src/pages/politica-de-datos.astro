@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
+---
+<BaseLayout
+  title="Política de tratamiento de datos personales"
+  description="Cómo TriAlliance Auditores S.A.S. recopila, usa y protege los datos personales de quienes la contactan, conforme a la Ley 1581 de 2012."
+>
+  <section class="section container" style="padding:48px 0 64px;max-width:860px">
+    <h1 style="font-size:28px;margin-bottom:24px">Política de tratamiento de datos personales</h1>
+    <div style="display:flex;flex-direction:column;gap:24px;font-size:16px;line-height:1.6;color:var(--text-soft)">
+      <p>
+        {SITE.name} (NIT {SITE.nit}) es responsable del tratamiento de los datos personales que usted
+        suministra al contactarnos por el correo {SITE.email}, por WhatsApp o por teléfono, conforme a la
+        Ley 1581 de 2012 y las normas que la reglamentan.
+      </p>
+
+      <div>
+        <h2 style="font-size:19px;color:var(--brand);margin-bottom:8px">Qué datos recopilamos</h2>
+        <p>Nombre, empresa, correo electrónico, teléfono y la información que usted decida incluir en su mensaje al solicitar una asesoría.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:19px;color:var(--brand);margin-bottom:8px">Finalidad</h2>
+        <p>Usamos estos datos únicamente para responder su solicitud de asesoría o cotización y, si se concreta una relación comercial, para la prestación del servicio contratado. No vendemos ni compartimos sus datos con terceros para fines publicitarios.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:19px;color:var(--brand);margin-bottom:8px">Sus derechos</h2>
+        <p>Como titular de los datos, usted puede conocer, actualizar, rectificar y solicitar la supresión de su información, así como revocar la autorización otorgada, escribiendo a {SITE.email}.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:19px;color:var(--brand);margin-bottom:8px">Proveedores tecnológicos</h2>
+        <p>Un proveedor tecnológico puede alojar esta web y procesar las solicitudes en nombre de {SITE.shortName}, bajo las condiciones de un encargo de tratamiento de datos personales conforme a la Ley 1581 de 2012.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:19px;color:var(--brand);margin-bottom:8px">Vigencia</h2>
+        <p>Esta política aplica mientras exista una relación con el titular o hasta que se cumpla la finalidad del tratamiento, lo que ocurra después.</p>
+      </div>
+
+      <p style="font-size:14px">
+        [Pendiente: revisión legal formal de esta política y del canal o procedimiento específico para que los titulares ejerzan sus derechos.]
+      </p>
+    </div>
+  </section>
+</BaseLayout>

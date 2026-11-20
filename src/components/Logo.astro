@@ -1,0 +1,45 @@
+---
+interface Props {
+  size?: number;
+}
+const { size = 40 } = Astro.props;
+const uid = crypto.randomUUID().slice(0, 8);
+---
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 100 100"
+  aria-hidden="true"
+>
+  <defs>
+    <radialGradient id={`logo-disc-${uid}`} gradientUnits="userSpaceOnUse" cx="38" cy="32" r="72">
+      <stop offset="0%" stop-color="#1c3878" />
+      <stop offset="100%" stop-color="#050f2c" />
+    </radialGradient>
+    <linearGradient id={`logo-ring-${uid}`} gradientUnits="userSpaceOnUse" x1="8" y1="8" x2="92" y2="92">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="22%" stop-color="#c9d6ee" />
+      <stop offset="50%" stop-color="#5a7096" />
+      <stop offset="100%" stop-color="#0b2160" />
+    </linearGradient>
+    <linearGradient id={`logo-silver-${uid}`} gradientUnits="userSpaceOnUse" x1="10" y1="80" x2="95" y2="15">
+      <stop offset="0%" stop-color="#2a3550" />
+      <stop offset="28%" stop-color="#aebdd9" />
+      <stop offset="45%" stop-color="#ffffff" />
+      <stop offset="62%" stop-color="#8b9bc2" />
+      <stop offset="100%" stop-color="#2a3550" />
+    </linearGradient>
+    <linearGradient id={`logo-blue-${uid}`} gradientUnits="userSpaceOnUse" x1="53" y1="4" x2="12" y2="86">
+      <stop offset="0%" stop-color="#bfe8fb" />
+      <stop offset="35%" stop-color="#2f80ea" />
+      <stop offset="100%" stop-color="#081d4d" />
+    </linearGradient>
+  </defs>
+
+  <circle cx="50" cy="50" r="46" fill={`url(#logo-disc-${uid})`} />
+  <circle cx="50" cy="50" r="42" fill="none" stroke={`url(#logo-ring-${uid})`} stroke-width="2.6" />
+
+  <path d="M53,4 L94,78 L72,66 L53,26 Z" fill={`url(#logo-silver-${uid})`} stroke="#e8edf5" stroke-width="0.5" stroke-linejoin="round" />
+  <path d="M6,86 L94,78 L72,66 L28,72 Z" fill={`url(#logo-silver-${uid})`} stroke="#e8edf5" stroke-width="0.5" stroke-linejoin="round" />
+  <path d="M53,4 L6,86 L28,72 L53,26 Z" fill={`url(#logo-blue-${uid})`} stroke="#e8edf5" stroke-width="0.5" stroke-linejoin="round" />
+</svg>

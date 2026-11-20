@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+import WaveDivider from "../../components/WaveDivider.astro";
+import { SITE, FAQ_GENERAL, waLink, contactLink } from "../../data/site";
+import { SERVICES, relatedServices } from "../../data/services";
+
+export function getStaticPaths() {
+  return SERVICES.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+const { service } = Astro.props;
+const related = relatedServices(service.slug, 3);
+const serviceFaq = FAQ_GENERAL.slice(0, 4);
+---
+<BaseLayout
+  title={service.title}
+  description={service.desc}
+  service={service.title}
+>
+  <section class="hero" style="padding-bottom:56px">
+    <div class="decor-ring" style="width:420px;height:420px;right:-160px;top:-220px"></div>
+    <div class="container" style="align-items:end">
+      <div>
+        <nav class="breadcrumb" aria-label="Ruta de ubicación">
+          <a href="/">Inicio</a><span>/</span>
+          <a href="/servicios">Servicios</a><span>/</span>
+          <span style="color:#fff">{service.title}</span>
+        </nav>
+        <h1 style="margin-top:16px">{service.title}</h1>
+        <p class="lede">{service.desc}</p>
+        <div class="hero-actions">
+          <a class="btn btn-accent" href={contactLink(service.title)}>Solicitar asesoría<Icon name="arrow" size={20} /></a>
+          <a class="wa-link" style="color:#fff;display:flex;align-items:center;gap:8px;min-height:44px;font-weight:600" href={`tel:+${SITE.phoneIntl}`}>
+            <Icon name="phone" size={20} />{SITE.phoneDisplay}
+          </a>
+        </div>
+      </div>
+      {service.detail?.legalBadge && (
+        <div class="legal-note-card">
+          <span class="label">{service.detail.legalBadge}</span>
+          <span class="text">{service.detail.legalNote}</span>
+        </div>
+      )}
+    </div>
+    <WaveDivider />
+  </section>
+
+  {service.detail ? (
+    <>
+      <section class="section container">
+        <div class="section-head">
+          <span class="eyebrow">¿Es para su empresa?</span>
+          <h2 style="font-size:28px">Si marca al menos una, conversemos</h2>
+        </div>
+        <div class="check-list">
+          {service.detail.checklist.map((c: string) => (
+            <div class="check-row">
+              <span class="mark"><Icon name="check" size={16} /></span>{c}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="section container">
+        <div class="section-head">
+          <span class="eyebrow">Qué incluye</span>
+          <h2 style="font-size:28px">Una evaluación integral de su organización</h2>
+        </div>
+        <div class="includes-grid">
+          {service.detail.includes.map((s: { icon: any; t: string; d: string }) => (
+            <div class="include-card">
+              <span class="icon"><Icon name={s.icon} size={28} /></span>
+              <span class="t">{s.t}</span>
+              <span class="d">{s.d}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="section container">
+        <div class="section-head">
+          <span class="eyebrow">Entregables</span>
+          <h2 style="font-size:28px">Lo que recibe, por escrito y firmado</h2>
+          <p style="font-size:15px;color:var(--text-soft)">Cada documento lo firma un contador público con tarjeta profesional vigente.</p>
+        </div>
+        <div class="deliverables-list">
+          {service.detail.deliverables.map((d: { t: string; f: string }) => (
+            <div class="deliverable-row">
+              <span class="icon icon-brand"><Icon name="doc" size={22} /></span>
+              <span class="t">{d.t}</span>
+              <span class="f">{d.f}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="section container">
+        <div class="section-head">
+          <span class="eyebrow">Proceso</span>
+          <h2 style="font-size:28px">Así acompañamos su año fiscal</h2>
+        </div>
+        <div class="steps">
+          {service.detail.steps.map((p: { n: string; w: string; t: string; d: string }) => (
+            <div class="step">
+              <span class="step-num">{p.n}</span>
+              <div class="step-body">
+                <span class="week">{p.w}</span>
+                <span class="t">{p.t}</span>
+                <span class="d">{p.d}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  ) : (
+    <section class="section container">
+      <div class="section-head">
+        <span class="eyebrow">Qué incluye</span>
+        <h2 style="font-size:28px">Alcance del servicio</h2>
+      </div>
+      <div class="simple-list">
+        {service.bullets.map((b: string) => (
+          <div class="bullet"><span class="icon"><Icon name="check" size={18} /></span>{b}</div>
+        ))}
+      </div>
+      <p style="margin-top:20px;font-size:15px;color:var(--text-soft)">
+        [Pendiente: checklist, entregables y proceso específicos de este servicio. Mientras TriAlliance los confirma, aplican el proceso general de <a href="/como-trabajamos">cómo trabajamos</a>.]
+      </p>
+    </section>
+  )}
+
+  <section class="section container" style="padding-top:112px">
+    <div style="display:grid;grid-template-columns:1fr;gap:48px">
+      <div>
+        <h2 style="font-size:26px;margin-bottom:20px">Preguntas sobre {service.title.toLowerCase()}</h2>
+        <div class="faq-list">
+          {serviceFaq.map((f, i) => (
+            <details class="faq-item" open={i === 0}>
+              <summary>
+                {f.q}
+                <span class="faq-sign"><Icon name="arrow" size={16} /></span>
+              </summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+      <div class="legal-note-card on-light">
+        <span class="label">Caso relacionado</span>
+        <span class="text" style="color:var(--brand);font-weight:700;font-size:20px">[Empresa del sector, reto concreto]</span>
+        <span class="text" style="color:var(--text-soft);font-size:15px">[Situación inicial y qué se hizo.]</span>
+        <a class="btn-link" href="/casos">Leer el caso</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="margin-top:80px">
+    <div class="decor-ring" style="width:420px;height:420px;left:-180px;top:-240px"></div>
+    <div class="container">
+      <h2 style="font-size:28px">¿Su empresa necesita {service.title.toLowerCase()}?</h2>
+      <a class="btn btn-accent" href={contactLink(service.title)}>Solicitar asesoría<Icon name="arrow" size={20} /></a>
+    </div>
+  </section>
+
+  <section class="section container" style="padding-bottom:64px">
+    <h2 style="font-size:24px;margin-bottom:20px">Servicios relacionados</h2>
+    <div class="related-grid">
+      {related.map((r) => (
+        <a class="related-card" href={`/servicios/${r.slug}`}>
+          <span class="icon"><Icon name={r.icon} size={24} /></span>
+          <span>
+            <span class="t" style="display:block">{r.title}</span>
+            <span class="d">{r.desc}</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

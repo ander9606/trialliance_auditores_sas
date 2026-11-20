@@ -1,0 +1,53 @@
+---
+import Icon from "./Icon.astro";
+import Logo from "./Logo.astro";
+import { SITE, waLink } from "../data/site";
+import { SERVICES } from "../data/services";
+
+const year = new Date().getFullYear();
+const footerServices = SERVICES.slice(0, 4);
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-row">
+          <span class="mark" style="width:32px;height:32px"><Logo size={32} /></span>
+          <span class="top" translate="no">TRIALLIANCE</span>
+        </div>
+        <p class="footer-tagline">{SITE.tagline}</p>
+        <div class="social-row">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram"><Icon name="ig" size={18} /></a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <span class="title">Servicios</span>
+          {footerServices.map((s) => <a href={`/servicios/${s.slug}`}>{s.title}</a>)}
+        </div>
+        <div class="footer-col">
+          <span class="title">Empresa</span>
+          <a href="/nosotros">Nosotros</a>
+          <a href="/como-trabajamos">Cómo trabajamos</a>
+          <a href="/casos">Casos</a>
+          <a href="/recursos">Recursos</a>
+        </div>
+        <div class="footer-col">
+          <span class="title">Contacto</span>
+          <a href={`tel:+${SITE.phoneIntl}`}>{SITE.phoneDisplay}</a>
+          <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+          <a href={waLink("Hola, vengo de la web de TriAlliance.")}>WhatsApp</a>
+          <span>{SITE.address}</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>{SITE.name}</span>
+      <span>NIT {SITE.nit}</span>
+      <a href="/politica-de-datos">Política de tratamiento de datos</a>
+      <span>© {year}</span>
+    </div>
+  </div>
+</footer>

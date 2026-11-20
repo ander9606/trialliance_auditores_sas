@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+import { SERVICES } from "../../data/services";
+---
+<BaseLayout
+  title="Servicios"
+  description="Revisoría fiscal, auditoría externa, tributaria, de TI, SG-SST y outsourcing contable para empresas colombianas."
+>
+  <section class="section container" style="padding-top:48px">
+    <div class="section-head">
+      <h2 style="font-size:32px">Cumplir la norma y decidir con información confiable</h2>
+    </div>
+    <div class="svc-list">
+      {SERVICES.map((s, i) => (
+        <details class="svc-item" open={i === 0}>
+          <summary aria-label={s.title}>
+            <span class="svc-icon"><Icon name={s.icon} size={24} /></span>
+            <span>
+              <span class="svc-title">{s.title}</span><br />
+              <span class="svc-desc">{s.desc}</span>
+            </span>
+            <span class="svc-sign"><Icon name="arrow" size={16} /></span>
+          </summary>
+          <div class="svc-body">
+            {s.bullets.map((b) => (
+              <div class="bullet"><span class="icon"><Icon name="check" size={16} /></span>{b}</div>
+            ))}
+            <a class="btn-link" href={`/servicios/${s.slug}`}>Ver detalle del servicio</a>
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

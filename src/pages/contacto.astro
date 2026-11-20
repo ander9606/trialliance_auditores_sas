@@ -1,0 +1,156 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import { SITE, ORIGENES, waLink, mailLink } from "../data/site";
+import { SERVICES } from "../data/services";
+---
+<BaseLayout
+  title="Contacto"
+  description="Solicite una asesoría a TriAlliance Auditores S.A.S. por correo o WhatsApp, o escríbanos directamente."
+>
+  <section class="hero" style="padding:48px 0 72px">
+    <div class="decor-ring" style="width:380px;height:380px;right:-180px;top:-180px"></div>
+    <div class="container" style="display:block;max-width:var(--container)">
+      <div class="hero-kicker">Contacto</div>
+      <h1 style="margin-top:12px">¿Hablamos de su empresa?</h1>
+      <p class="lede" style="margin-top:12px">Cuéntenos su caso y le enviamos una propuesta con alcance y tiempos. Respondemos en menos de un día hábil.</p>
+    </div>
+  </section>
+
+  <section class="section container" style="padding-bottom:64px">
+    <div style="display:grid;grid-template-columns:1fr;gap:48px">
+      <form id="advisory-form" class="form" novalidate>
+        <div class="field">
+          <label for="servicio">Servicio de interés</label>
+          <select id="servicio" name="servicio">
+            <option value="">No estoy seguro todavía</option>
+            {SERVICES.map((s) => <option value={s.title}>{s.title}</option>)}
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="nombre">Nombre completo *</label>
+          <input type="text" id="nombre" name="nombre" autocomplete="name" required />
+        </div>
+
+        <div class="field">
+          <label for="correo">Correo electrónico *</label>
+          <input type="email" id="correo" name="correo" autocomplete="email" inputmode="email" spellcheck="false" required />
+        </div>
+
+        <div class="field">
+          <label for="empresa">Empresa (opcional)</label>
+          <input type="text" id="empresa" name="empresa" autocomplete="organization" />
+        </div>
+
+        <div class="field">
+          <label for="telefono">Teléfono o WhatsApp (opcional)</label>
+          <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel" />
+        </div>
+
+        <div class="field">
+          <label for="origen">¿Cómo nos conoció? (opcional)</label>
+          <select id="origen" name="origen">
+            <option value="">Prefiero no decirlo</option>
+            {ORIGENES.map((o) => <option value={o}>{o}</option>)}
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="mensaje">Cuéntenos su necesidad (opcional)</label>
+          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describa brevemente su situación…"></textarea>
+        </div>
+
+        <div class="checkbox-field">
+          <input type="checkbox" id="acepto" name="acepto" required />
+          <label for="acepto">He leído y acepto la <a href="/politica-de-datos">política de tratamiento de datos personales</a>. *</label>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="btn-mail" class="btn btn-accent">Enviar por correo</button>
+          <button type="button" id="btn-wa" class="btn btn-outline"><Icon name="wa" size={20} />Enviar por WhatsApp</button>
+        </div>
+        <p id="form-hint" class="form-hint" hidden></p>
+      </form>
+
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:480px">
+        <p style="font-size:14px;color:var(--text-soft)">¿Prefiere no llenar el formulario? Escríbanos directo:</p>
+        <a class="include-card" href={mailLink("Solicitud de asesoría")} style="text-decoration:none;flex-direction:row;align-items:center;gap:16px">
+          <span class="icon icon-brand"><Icon name="mail" size={28} /></span>
+          <span><span class="t" style="display:block">Correo</span><span class="d">{SITE.email}</span></span>
+        </a>
+        <a class="include-card" href={waLink("Hola, quiero más información sobre sus servicios.")} style="text-decoration:none;flex-direction:row;align-items:center;gap:16px">
+          <span class="icon icon-brand"><Icon name="wa" size={28} /></span>
+          <span><span class="t" style="display:block">WhatsApp</span><span class="d">{SITE.phoneDisplay}</span></span>
+        </a>
+        <a class="include-card" href={`tel:+${SITE.phoneIntl}`} style="text-decoration:none;flex-direction:row;align-items:center;gap:16px">
+          <span class="icon icon-brand"><Icon name="phone" size={28} /></span>
+          <span><span class="t" style="display:block">Teléfono</span><span class="d">{SITE.phoneDisplay}</span></span>
+        </a>
+        <div class="include-card" style="flex-direction:row;align-items:center;gap:16px">
+          <span class="icon icon-brand"><Icon name="building" size={28} /></span>
+          <span><span class="t" style="display:block">Dirección</span><span class="d">{SITE.address}</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script define:vars={{ email: SITE.email, phoneIntl: SITE.phoneIntl }}>
+  const form = document.getElementById("advisory-form");
+  const hint = document.getElementById("form-hint");
+  const servicioSelect = document.getElementById("servicio");
+
+  // Preselecciona el servicio cuando se llega desde /contacto?servicio=...
+  const preselect = new URLSearchParams(location.search).get("servicio");
+  if (preselect) {
+    for (const opt of servicioSelect.options) {
+      if (opt.value === preselect) {
+        servicioSelect.value = preselect;
+        break;
+      }
+    }
+  }
+
+  function val(id) {
+    return document.getElementById(id).value.trim();
+  }
+
+  function buildMessage() {
+    const servicio = val("servicio");
+    const nombre = val("nombre");
+    const correo = val("correo");
+    const empresa = val("empresa");
+    const telefono = val("telefono");
+    const origen = val("origen");
+    const mensaje = val("mensaje");
+    const lines = [
+      `Nombre: ${nombre}`,
+      `Correo: ${correo}`,
+      empresa && `Empresa: ${empresa}`,
+      telefono && `Teléfono: ${telefono}`,
+      servicio && `Servicio de interés: ${servicio}`,
+      origen && `¿Cómo nos conoció?: ${origen}`,
+      mensaje && `Necesidad: ${mensaje}`,
+    ].filter(Boolean);
+    return { servicio, body: lines.join("\n") };
+  }
+
+  document.getElementById("btn-mail").addEventListener("click", () => {
+    if (!form.reportValidity()) return;
+    const { servicio, body } = buildMessage();
+    const subject = servicio ? `Solicitud de asesoría - ${servicio}` : "Solicitud de asesoría";
+    location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    hint.hidden = false;
+    hint.textContent = "Se abrió su cliente de correo con el mensaje listo: confirme el envío allí.";
+  });
+
+  document.getElementById("btn-wa").addEventListener("click", () => {
+    if (!form.reportValidity()) return;
+    const { body } = buildMessage();
+    const text = `Hola, quiero solicitar una asesoría.\n\n${body}`;
+    window.open(`https://wa.me/${phoneIntl}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    hint.hidden = false;
+    hint.textContent = "Se abrió WhatsApp con el mensaje listo: confirme el envío allí.";
+  });
+</script>

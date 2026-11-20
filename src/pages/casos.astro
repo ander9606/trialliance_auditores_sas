@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import { CASES, contactLink } from "../data/site";
+---
+<BaseLayout
+  title="Casos de éxito"
+  description="Resultados verificables de auditoría y revisoría fiscal para empresas colombianas."
+>
+  <section class="hero" style="padding:48px 0 72px">
+    <div class="decor-ring" style="width:380px;height:380px;right:-180px;top:-180px"></div>
+    <div class="container" style="display:block;max-width:var(--container)">
+      <div class="hero-kicker">Casos y reseñas</div>
+      <h1 style="margin-top:12px">Resultados que se pueden verificar</h1>
+      <p class="lede" style="margin-top:12px">Publicamos solo casos reales, con autorización expresa del cliente. Ningún nombre, cifra o resultado se inventa.</p>
+    </div>
+  </section>
+
+  <section class="section container" style="padding-bottom:64px">
+    <div class="cases-grid">
+      {CASES.map((c) => (
+        <div class="case-card">
+          <span class="tag">{c.tag}</span>
+          <span class="t">{c.t}</span>
+          <span class="d">{c.d}</span>
+          <span class="r">{c.r}</span>
+        </div>
+      ))}
+    </div>
+    <p style="margin-top:24px;font-size:15px;color:var(--text-soft)">
+      [Pendiente: casos reales autorizados por los clientes. Esta sección se completa cuando TriAlliance confirme resultados que puedan publicarse.]
+    </p>
+  </section>
+
+  <section class="cta-band">
+    <div class="decor-ring" style="width:380px;height:380px;left:-180px;top:-200px"></div>
+    <div class="container">
+      <h2 style="font-size:28px">¿Quiere ser el próximo caso de éxito?</h2>
+      <a class="btn btn-accent" href={contactLink()}>Solicitar asesoría<Icon name="arrow" size={20} /></a>
+    </div>
+  </section>
+</BaseLayout>
