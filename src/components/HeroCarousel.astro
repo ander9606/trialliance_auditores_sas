@@ -41,7 +41,7 @@ const BAR_COUNT = 7;
 
             bars.forEach((bar, i) => {
               bar.style.transition = `transform ${REVEAL_MS}ms var(--ease)`;
-              photoWraps[i].style.transition = `opacity ${PHOTO_FADE_MS}ms var(--ease)`;
+              photoWraps[i].style.transition = `clip-path ${PHOTO_FADE_MS}ms var(--ease)`;
               // cada franja contiene una copia de ancho completo de la foto, desplazada
               // a la izquierda lo justo para que, recortada por overflow:hidden, se vea
               // como una sola foto con object-fit:cover — igual que la capa de abajo.
@@ -79,7 +79,7 @@ const BAR_COUNT = 7;
                 void root.offsetWidth;
                 bars.forEach((bar, i) => {
                   bar.style.transition = `transform ${REVEAL_MS}ms var(--ease)`;
-                  photoWraps[i].style.transition = `opacity ${PHOTO_FADE_MS}ms var(--ease)`;
+                  photoWraps[i].style.transition = `clip-path ${PHOTO_FADE_MS}ms var(--ease)`;
                 });
               }, totalReveal);
             }
