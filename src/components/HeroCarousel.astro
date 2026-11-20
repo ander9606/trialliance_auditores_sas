@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import SealMotif from "./SealMotif.astro";
+
+const photos = Object.values(
+  import.meta.glob("../assets/hero/*.{jpg,jpeg,png,webp,avif}", { eager: true })
+).map((m: any) => m.default);
+---
+<div class="hero-media-photo">
+  {photos.length > 0 ? (
+    <>
+      {photos.map((src, i) => (
+        <Image
+          src={src}
+          alt=""
+          width={720}
+          height={880}
+          loading={i === 0 ? "eager" : "lazy"}
+          class={`hero-photo${i === 0 ? " is-active" : ""}`}
+        />
+      ))}
+      {photos.length > 1 && (
+        <script define:vars={{ count: photos.length }}>
+          if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            const slides = document.currentScript.parentElement.querySelectorAll(".hero-photo");
+            let i = 0;
+            setInterval(() => {
+              slides[i].classList.remove("is-active");
+              i = (i + 1) % count;
+              slides[i].classList.add("is-active");
+            }, 5000);
+          }
+        </script>
+      )}
+    </>
+  ) : (
+    <>
+      <div class="ledger-lines" aria-hidden="true">
+        <span style="width:72%"></span>
+        <span style="width:88%"></span>
+        <span style="width:60%"></span>
+        <span style="width:80%"></span>
+        <span style="width:46%"></span>
+      </div>
+      <div class="hero-seal"><SealMotif size={110} tone="accent" /></div>
+    </>
+  )}
+</div>

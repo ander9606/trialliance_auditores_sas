@@ -127,6 +127,12 @@ main { padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom)); }
 .ledger-lines { position: absolute; inset: 28px 28px auto 28px; display: flex; flex-direction: column; gap: 14px; }
 .ledger-lines span { display: block; height: 2px; background: rgba(255,255,255,.16); border-radius: 1px; }
 .hero-seal { position: absolute; right: 20px; bottom: 20px; opacity: .9; }
+.hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1); transition: opacity 1.8s var(--ease); }
+.hero-photo.is-active { opacity: 1; animation: hero-kenburns 6s ease-out forwards; }
+@keyframes hero-kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
 
 @media (min-width: 960px) {
   .hero { padding: 96px 0 152px; }

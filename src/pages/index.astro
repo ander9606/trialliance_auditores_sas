@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
 import WaveDivider from "../components/WaveDivider.astro";
 import SealMotif from "../components/SealMotif.astro";
+import HeroCarousel from "../components/HeroCarousel.astro";
 import { SITE, TRUST_BAR, NEEDS, WHY, PROCESS_STEPS, FAQ_GENERAL, CASES, TEAM, waLink, contactLink } from "../data/site";
 import { SERVICES } from "../data/services";
 ---
@@ -21,16 +22,7 @@ import { SERVICES } from "../data/services";
           <a class="btn btn-outline-dark" href="/servicios">Explorar servicios</a>
         </div>
       </div>
-      <div class="hero-media-photo">
-        <div class="ledger-lines" aria-hidden="true">
-          <span style="width:72%"></span>
-          <span style="width:88%"></span>
-          <span style="width:60%"></span>
-          <span style="width:80%"></span>
-          <span style="width:46%"></span>
-        </div>
-        <div class="hero-seal"><SealMotif size={110} tone="accent" /></div>
-      </div>
+      <HeroCarousel />
     </div>
     <WaveDivider />
   </section>
