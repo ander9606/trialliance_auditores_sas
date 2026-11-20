@@ -2,6 +2,17 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
 import { SITE, FAQ_GENERAL } from "../data/site";
+
+// Preguntas con contenido confirmado (sin "[pendiente]"): las únicas que se publican como datos estructurados.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_GENERAL.filter((f) => !f.a.includes("[")).map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 ---
 <BaseLayout
   title="Recursos y preguntas frecuentes"
@@ -31,4 +42,5 @@ import { SITE, FAQ_GENERAL } from "../data/site";
       [Pendiente: guías descargables y calendario de obligaciones, cuando TriAlliance confirme su contenido.]
     </p>
   </section>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </BaseLayout>

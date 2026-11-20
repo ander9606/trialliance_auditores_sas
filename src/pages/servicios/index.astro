@@ -2,6 +2,17 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Icon from "../../components/Icon.astro";
 import { SERVICES } from "../../data/services";
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: SERVICES.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    url: new URL(`/servicios/${s.slug}`, Astro.site).href,
+    name: s.title,
+  })),
+};
 ---
 <BaseLayout
   title="Servicios"
@@ -9,7 +20,7 @@ import { SERVICES } from "../../data/services";
 >
   <section class="section container" style="padding-top:48px">
     <div class="section-head">
-      <h2 style="font-size:32px">Cumplir la norma y decidir con información confiable</h2>
+      <h1 style="font-size:32px">Cumplir la norma y decidir con información confiable</h1>
     </div>
     <div class="svc-list">
       {SERVICES.map((s, i) => (
@@ -32,4 +43,5 @@ import { SERVICES } from "../../data/services";
       ))}
     </div>
   </section>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
 </BaseLayout>

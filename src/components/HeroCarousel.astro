@@ -15,7 +15,7 @@ const BAR_COUNT = 7;
 <div class="hero-media-photo">
   {urls.length > 0 ? (
     <>
-      <img class="hero-photo-current" src={urls[0]} alt="" />
+      <img class="hero-photo-current" src={urls[0]} alt="" fetchpriority="high" />
       {urls.length > 1 && (
         <div class="hero-bars" aria-hidden="true">
           {Array.from({ length: BAR_COUNT }).map(() => (
