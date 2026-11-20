@@ -15,11 +15,11 @@ const BAR_COUNT = 7;
 <div class="hero-media-photo">
   {urls.length > 0 ? (
     <>
-      <img class="hero-photo-current" src={urls[0]} alt="" width="720" height="880" />
+      <img class="hero-photo-current" src={urls[0]} alt="" />
       {urls.length > 1 && (
         <div class="hero-bars" aria-hidden="true">
           {Array.from({ length: BAR_COUNT }).map(() => (
-            <div class="hbar"><div class="hbar-photo"></div></div>
+            <div class="hbar"><div class="hbar-photo"><img /></div></div>
           ))}
         </div>
       )}
@@ -29,7 +29,8 @@ const BAR_COUNT = 7;
             const root = document.currentScript.parentElement;
             const currentImg = root.querySelector(".hero-photo-current");
             const bars = Array.from(root.querySelectorAll(".hbar"));
-            const photos = Array.from(root.querySelectorAll(".hbar-photo"));
+            const photoWraps = Array.from(root.querySelectorAll(".hbar-photo"));
+            const photoImgs = photoWraps.map((w) => w.querySelector("img"));
 
             const STEP_MS = 55;
             const REVEAL_MS = 650;
@@ -40,9 +41,12 @@ const BAR_COUNT = 7;
 
             bars.forEach((bar, i) => {
               bar.style.transition = `transform ${REVEAL_MS}ms var(--ease)`;
-              photos[i].style.transition = `opacity ${PHOTO_FADE_MS}ms var(--ease)`;
-              photos[i].style.backgroundSize = `${BAR_COUNT * 100}% 100%`;
-              photos[i].style.backgroundPosition = `${(i * 100) / (BAR_COUNT - 1)}% 0`;
+              photoWraps[i].style.transition = `opacity ${PHOTO_FADE_MS}ms var(--ease)`;
+              // cada franja contiene una copia de ancho completo de la foto, desplazada
+              // a la izquierda lo justo para que, recortada por overflow:hidden, se vea
+              // como una sola foto con object-fit:cover — igual que la capa de abajo.
+              photoImgs[i].style.width = `${BAR_COUNT * 100}%`;
+              photoImgs[i].style.left = `${-(i * 100)}%`;
             });
 
             let index = 0;
@@ -54,13 +58,13 @@ const BAR_COUNT = 7;
               bars.forEach((bar, i) => {
                 const d = Math.abs(i - mid) * STEP_MS;
                 bar.style.transitionDelay = `${d}ms`;
-                photos[i].style.backgroundImage = `url(${nextUrl})`;
-                photos[i].style.transitionDelay = `${d + PHOTO_LAG_MS}ms`;
+                photoImgs[i].src = nextUrl;
+                photoWraps[i].style.transitionDelay = `${d + PHOTO_LAG_MS}ms`;
               });
               requestAnimationFrame(() => requestAnimationFrame(() => {
                 bars.forEach((bar, i) => {
                   bar.classList.add("show");
-                  photos[i].classList.add("show");
+                  photoWraps[i].classList.add("show");
                 });
               }));
               setTimeout(() => {
@@ -68,14 +72,14 @@ const BAR_COUNT = 7;
                 index = nextIndex;
                 bars.forEach((bar, i) => {
                   bar.style.transition = "none";
-                  photos[i].style.transition = "none";
+                  photoWraps[i].style.transition = "none";
                   bar.classList.remove("show");
-                  photos[i].classList.remove("show");
+                  photoWraps[i].classList.remove("show");
                 });
                 void root.offsetWidth;
                 bars.forEach((bar, i) => {
                   bar.style.transition = `transform ${REVEAL_MS}ms var(--ease)`;
-                  photos[i].style.transition = `opacity ${PHOTO_FADE_MS}ms var(--ease)`;
+                  photoWraps[i].style.transition = `opacity ${PHOTO_FADE_MS}ms var(--ease)`;
                 });
               }, totalReveal);
             }

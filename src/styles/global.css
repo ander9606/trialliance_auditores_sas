@@ -129,10 +129,11 @@ main { padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom)); }
 .hero-seal { position: absolute; right: 20px; bottom: 20px; opacity: .9; }
 .hero-photo-current { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .hero-bars { position: absolute; inset: 0; display: flex; pointer-events: none; }
-.hbar { position: relative; flex: 1 1 0; background: var(--brand); transform: scaleY(0); transform-origin: top; }
+.hbar { position: relative; flex: 1 1 0; overflow: hidden; background: var(--accent); transform: scaleY(0); transform-origin: top; }
 .hbar.show { transform: scaleY(1); }
-.hbar-photo { position: absolute; inset: 0; background-repeat: no-repeat; opacity: 0; }
+.hbar-photo { position: absolute; inset: 0; overflow: hidden; opacity: 0; }
 .hbar-photo.show { opacity: 1; }
+.hbar-photo img { position: absolute; top: 0; height: 100%; display: block; object-fit: cover; }
 
 @media (min-width: 960px) {
   .hero { padding: 96px 0 152px; }
