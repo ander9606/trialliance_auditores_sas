@@ -1,34 +1,86 @@
 ---
-import { Image } from "astro:assets";
+import { getImage } from "astro:assets";
 import SealMotif from "./SealMotif.astro";
 
-const photos = Object.values(
+const files = Object.values(
   import.meta.glob("../assets/hero/*.{jpg,jpeg,png,webp,avif}", { eager: true })
 ).map((m: any) => m.default);
+
+const photos = await Promise.all(
+  files.map((src) => getImage({ src, width: 720, height: 880, format: "webp" }))
+);
+const urls = photos.map((p) => p.src);
+const BAR_COUNT = 7;
 ---
 <div class="hero-media-photo">
-  {photos.length > 0 ? (
+  {urls.length > 0 ? (
     <>
-      {photos.map((src, i) => (
-        <Image
-          src={src}
-          alt=""
-          width={720}
-          height={880}
-          loading={i === 0 ? "eager" : "lazy"}
-          class={`hero-photo${i === 0 ? " is-active" : ""}`}
-        />
-      ))}
-      {photos.length > 1 && (
-        <script define:vars={{ count: photos.length }}>
+      <img class="hero-photo-current" src={urls[0]} alt="" width="720" height="880" />
+      {urls.length > 1 && (
+        <div class="hero-bars" aria-hidden="true">
+          {Array.from({ length: BAR_COUNT }).map(() => (
+            <div class="hbar"><div class="hbar-photo"></div></div>
+          ))}
+        </div>
+      )}
+      {urls.length > 1 && (
+        <script define:vars={{ urls, BAR_COUNT }}>
           if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            const slides = document.currentScript.parentElement.querySelectorAll(".hero-photo");
-            let i = 0;
-            setInterval(() => {
-              slides[i].classList.remove("is-active");
-              i = (i + 1) % count;
-              slides[i].classList.add("is-active");
-            }, 5000);
+            const root = document.currentScript.parentElement;
+            const currentImg = root.querySelector(".hero-photo-current");
+            const bars = Array.from(root.querySelectorAll(".hbar"));
+            const photos = Array.from(root.querySelectorAll(".hbar-photo"));
+
+            const STEP_MS = 55;
+            const REVEAL_MS = 650;
+            const PHOTO_LAG_MS = 240;
+            const PHOTO_FADE_MS = 420;
+            const CYCLE_MS = 5000;
+            const mid = (BAR_COUNT - 1) / 2;
+
+            bars.forEach((bar, i) => {
+              bar.style.transition = `transform ${REVEAL_MS}ms var(--ease)`;
+              photos[i].style.transition = `opacity ${PHOTO_FADE_MS}ms var(--ease)`;
+              photos[i].style.backgroundSize = `${BAR_COUNT * 100}% 100%`;
+              photos[i].style.backgroundPosition = `${(i * 100) / (BAR_COUNT - 1)}% 0`;
+            });
+
+            let index = 0;
+            const totalReveal = (BAR_COUNT - 1) * STEP_MS + PHOTO_LAG_MS + PHOTO_FADE_MS;
+
+            function cycle() {
+              const nextIndex = (index + 1) % urls.length;
+              const nextUrl = urls[nextIndex];
+              bars.forEach((bar, i) => {
+                const d = Math.abs(i - mid) * STEP_MS;
+                bar.style.transitionDelay = `${d}ms`;
+                photos[i].style.backgroundImage = `url(${nextUrl})`;
+                photos[i].style.transitionDelay = `${d + PHOTO_LAG_MS}ms`;
+              });
+              requestAnimationFrame(() => requestAnimationFrame(() => {
+                bars.forEach((bar, i) => {
+                  bar.classList.add("show");
+                  photos[i].classList.add("show");
+                });
+              }));
+              setTimeout(() => {
+                currentImg.src = nextUrl;
+                index = nextIndex;
+                bars.forEach((bar, i) => {
+                  bar.style.transition = "none";
+                  photos[i].style.transition = "none";
+                  bar.classList.remove("show");
+                  photos[i].classList.remove("show");
+                });
+                void root.offsetWidth;
+                bars.forEach((bar, i) => {
+                  bar.style.transition = `transform ${REVEAL_MS}ms var(--ease)`;
+                  photos[i].style.transition = `opacity ${PHOTO_FADE_MS}ms var(--ease)`;
+                });
+              }, totalReveal);
+            }
+
+            setInterval(cycle, CYCLE_MS);
           }
         </script>
       )}

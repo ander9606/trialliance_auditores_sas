@@ -42,5 +42,13 @@ const pageTitle = title === SITE.name ? title : `${title} | TriAlliance Auditore
     <Footer />
     <MobileBar service={service} />
     <a href="#top" class="back-to-top" aria-label="Volver arriba">↑</a>
+    <script>
+      const backToTop = document.querySelector(".back-to-top");
+      addEventListener(
+        "scroll",
+        () => backToTop?.classList.toggle("is-visible", scrollY > innerHeight),
+        { passive: true },
+      );
+    </script>
   </body>
 </html>
