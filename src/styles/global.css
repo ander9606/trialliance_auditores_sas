@@ -343,7 +343,7 @@ a.include-card { color: var(--text); text-decoration: none; transition: backgrou
 /* Utilidades */
 .skip-link { position: absolute; left: -9999px; top: 0; background: var(--brand); color: #fff; padding: 10px 16px; z-index: 50; }
 .skip-link:focus { left: 12px; top: 12px; }
-.back-to-top { position: fixed; right: 16px; bottom: calc(var(--bar-h) + 16px); z-index: 15; width: 44px; height: 44px; border-radius: 50%; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(7,21,56,.35); text-decoration: none !important; opacity: 0; visibility: hidden; transition: opacity var(--t) var(--ease), visibility 0s linear var(--t), transform var(--t) var(--ease), background-color var(--t) var(--ease); }
+.back-to-top { position: fixed; right: 16px; bottom: calc(var(--bar-h) + 16px); z-index: 15; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: var(--brand-deep); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(7,21,56,.35); text-decoration: none !important; opacity: 0; visibility: hidden; transition: opacity var(--t) var(--ease), visibility 0s linear var(--t), transform var(--t) var(--ease), background-color var(--t) var(--ease); }
 .back-to-top.is-visible { opacity: 1; visibility: visible; transition: opacity var(--t) var(--ease), transform var(--t) var(--ease), background-color var(--t) var(--ease); }
 @media (min-width: 960px) { .back-to-top { bottom: 24px; } }
 
@@ -371,7 +371,7 @@ a.include-card { color: var(--text); text-decoration: none; transition: backgrou
   .footer-legal a:hover { color: #fff; }
   a.include-card:hover { background: var(--bg-soft); }
   .related-card:hover { background: var(--bg-soft); text-decoration: none; }
-  .back-to-top:hover { transform: translateY(-3px); background: var(--brand-deep); }
+  .back-to-top:hover { transform: translateY(-3px); background: var(--accent-hover); }
   @media (min-width: 960px) {
     .site-nav a:hover { text-decoration: none; color: var(--brand); }
     .site-nav a:hover::after { transform: scaleX(1); }
