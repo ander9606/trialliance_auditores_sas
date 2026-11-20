@@ -10,9 +10,9 @@ const waMessage = service
   ? `Hola, quiero más información sobre ${service}.`
   : "Hola, quiero más información sobre sus servicios.";
 ---
-<div class="mobile-bar">
+<nav class="mobile-bar" aria-label="Contacto rápido">
   <a class="btn btn-outline" href={waLink(waMessage)}>
     <Icon name="wa" size={20} />WhatsApp
   </a>
   <a class="btn btn-accent" href={contactLink(service)}>Solicitar asesoría</a>
-</div>
+</nav>
